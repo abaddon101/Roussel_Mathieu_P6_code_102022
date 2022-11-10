@@ -1,6 +1,6 @@
 function photographerFactory(data) {
   const { city, country, name, tagline, portrait, price, id } = data;
-  console.log(price);
+  // console.log(price);
   const picture = `assets/photographersMini/${portrait}`;
   // la fonction getUserCardDOM permet :
   function getUserCardDOM() {
@@ -54,7 +54,7 @@ function photographerFactory(data) {
     const bouton = document.createElement("button");
     bouton.className = "contact_button";
     bouton.innerText = "Contactez-moi";
-    headerSection.appendChild(bouton)
+    headerSection.appendChild(bouton);
     profilPicturePhotographer.setAttribute("src", picture2);
     console.log(profilPicturePhotographer.src);
     // je veux créer un article ou sera inclu dedans
@@ -97,7 +97,7 @@ function photographerFactory(data) {
 //   // console.log("voici l'id de ce photographe :", param1Id);
 //   const photographer = await getPhotographer(param1Id);
 //   console.log(photographer);
-// 
+//
 //   headerPhotographer(photographer);
 //   const media = await getMedia(param1Id);
 //   console.log(media);

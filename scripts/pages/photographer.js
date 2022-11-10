@@ -28,8 +28,32 @@ async function init() {
 init();
 
 async function displayData(photographer) {
+  // La const photographerModel appelle  photographerFactory avec comme argument photographer
   const photographerModel = photographerFactory(photographer);
+  // j'appel headerPhotographer grâce à photographerModel
   const headerphotographer = photographerModel.headerPhotographer();
   const headerSection = document.querySelector(".photograph-header-container");
   headerSection.appendChild(headerphotographer);
+  // j'appel mediaCard grâce à photographerModel
+  const mediaSection = photographerModel.mediaCard(photographer);
+
+  // dans mon médiaCard je veux insérer les medias img et video
+  // par rapport au photgraphId du json et d'un ${}
+  
+
+
+  //
 }
+
+// async function displayData(photographers) {
+//   // la constante photographersSection selectionnne la class photographer_section
+//   const photographersSection = document.querySelector(".photographer_section");
+// 
+//   photographers.forEach((photographer) => {
+//     const photographerModel = photographerFactory(photographer);
+//     console.log(photographerModel);
+//     const userCardDOM = photographerModel.getUserCardDOM();
+//     photographersSection.appendChild(userCardDOM);
+//     
+//   });
+// }
