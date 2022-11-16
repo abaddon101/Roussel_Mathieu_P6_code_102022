@@ -8,6 +8,12 @@
   width: 950px;
   height: 950px;
 }
+.mediaCards{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 70px;
+  margin-top: 100px;
+}
 .photograph-header {
   background-color: #fafafa;
   height: 200px;

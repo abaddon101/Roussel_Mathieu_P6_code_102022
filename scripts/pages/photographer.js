@@ -21,22 +21,24 @@ async function init() {
   console.log(photographerDisplayData);
   // headerPhotographer(photographer);
   const media = await getMedia(paramId);
-  displayData(photographerDisplayData);
+  displayData(photographerDisplayData, media);
   console.log(media);
-  // mediaCard(media);
+  //  mediaCard(media);
 }
 init();
 
-async function displayData(photographer) {
+async function displayData(photographer, media) {
   // La const photographerModel appelle  photographerFactory avec comme argument photographer
-  const photographerModel = photographerFactory(photographer);
+  const photographerModel = photographerFactory(photographer, media);
   // j'appel headerPhotographer grâce à photographerModel
   const headerphotographer = photographerModel.headerPhotographer();
   const headerSection = document.querySelector(".photograph-header-container");
   headerSection.appendChild(headerphotographer);
   // j'appel mediaCard grâce à photographerModel
-  const mediaSection = photographerModel.mediaCard(photographer);
+   const mediaSection = photographerModel.mediaCard(photographer);
 
+  
+  
   // dans mon médiaCard je veux insérer les medias img et video
   // par rapport au photgraphId du json et d'un ${}
   
