@@ -19,30 +19,28 @@ async function init() {
   const photographerDisplayData = await getPhotographer(paramId);
   console.log(photographerDisplayData);
   // headerPhotographer(photographer);
-  const media = await getMedia(paramId);
-  displayData(photographerDisplayData, media);
-  console.log(media);
-  media.forEach((photographer, media) => {
+  const medias = await getMedia(paramId);
+  displayData(photographerDisplayData, medias);
+  console.log(medias);
+  medias.forEach((media) => {
     // const image = document.createElement("img");
     // image.src = `assets/FishEye_Photos/Sample Photos${object.image}.jpg`;
-    console.log(photographer.image);
-    photographer.photographerId === 243 ||
-      photographer.photographerId === 930 ||
-      photographer.photographerId === 82 ||
-      photographer.photographerId === 527 ||
-      photographer.photographerId === 925 ||
-      photographer.photographerId === 195 ||
-      media.photographerId === 243 ||
-      media.photographerId === 930 ||
-      media.photographerId === 82 ||
-      media.photographerId === 527 ||
-      media.photographerId === 925 ||
-      media.photographerId === 195;
+    // console.log(photographer.image);
+    // console.log(photographer.video);
+
+    console.log(media);
+
+    // media.photographerId === 243 ||
+    //   media.photographerId === 930 ||
+    //   media.photographerId === 82 ||
+    //   media.photographerId === 527 ||
+    //   media.photographerId === 925 ||
+    //   media.photographerId === 195;
     // console.log("image du photographe :", object.image);
     // console.log("video du photographe :", object.video);
-    const photographerModel = photographerFactory(photographer, media);
+    const mediaModel = mediaFactory(media, photographerDisplayData);
     const mediaSection = document.querySelector(".mediaSection");
-    const mediaCardDOM = photographerModel.getMediaCardDOM();
+    const mediaCardDOM = mediaModel.getMediaCardDOM();
     mediaSection.appendChild(mediaCardDOM);
   });
 
@@ -67,8 +65,6 @@ async function displayData(photographer, media) {
   headerSection.appendChild(headerphotographer);
   console.log(headerSection);
 
-  // j'appel mediaCard grâce à photographerModel
-  const mediaCard = photographerModel.getMediaCardDOM();
 
   // mediaSectionPhotographer.appendChild(mediaCard);
 
