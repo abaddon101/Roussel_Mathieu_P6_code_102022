@@ -1,9 +1,7 @@
 function photographerFactory(data) {
   const { city, country, name, tagline, portrait, price, id } = data;
-  // création d'un objet contenant les éléments des medias
-  // console.log(price);
   const picture = `assets/photographersMini/${portrait}`;
-  
+
   // la fonction getUserCardDOM permet :
   function getUserCardDOM() {
     const article = document.createElement("article");
@@ -58,8 +56,8 @@ function photographerFactory(data) {
     bouton.innerText = "Contactez-moi";
     headerSection.appendChild(bouton);
     profilPicturePhotographer.setAttribute("src", picture2);
-    console.log(profilPicturePhotographer.src);
-    // je veux créer un article ou sera inclu dedans
+    //console.log(profilPicturePhotographer.src);
+
     const contentHeader = document.createElement("div");
     contentHeader.className += "contentHeader";
     headerSection.appendChild(contentHeader);
@@ -76,23 +74,3 @@ function photographerFactory(data) {
     headerPhotographer,
   };
 }
-
-// création d'un article, pour insérer les cardMedias
-
-// init();
-// async function init() {
-//   // créer une const qui récupère l'id grâce à l'url
-//   // console.log("window Location:", window.location);
-//   const photographersValue = window.location.search;
-//   // console.log(" photographers values:", photographersValue );
-//   const urlParams = new URLSearchParams(photographersValue);
-//   const param1Id = urlParams.get("id");
-//   // console.log("voici l'id de ce photographe :", param1Id);
-//   const photographer = await getPhotographer(param1Id);
-//   console.log(photographer);
-//
-//   headerPhotographer(photographer);
-//   const media = await getMedia(param1Id);
-//   console.log(media);
-//   mediaCard(media);
-// }
