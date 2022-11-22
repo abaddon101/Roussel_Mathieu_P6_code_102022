@@ -8,6 +8,7 @@ function mediaFactory(media, photographer) {
   function getMediaCardDOM() {
     //console.log(getMediaCardDOM);
     const article = document.createElement("article");
+
     if (media.image) {
       const pictureMedia = `assets/FishEye_Photos/Sample Photos/${photographerId}/${image}`;
       const imgMedia = document.createElement("img");
@@ -24,18 +25,28 @@ function mediaFactory(media, photographer) {
       movieMedia.setAttribute("controls", videoMedia);
 
       article.appendChild(movieMedia);
-      //movieMedia.addEventListenner(onclick, play())
       movieMedia.addEventListener("onclick", playPauseMedia);
       function playPauseMedia() {
-        //if (media.paused) {
-        //  play.setAttribute('data-icon','u');
-        //  media.play();
-        //} else {
         play.setAttribute("data-icon", "P");
-        // media.pause();
-        //}
       }
     }
+    const infosArticle = document.createElement("div");
+    article.appendChild(infosArticle);
+    infosArticle.className = "infosArticle";
+    const titleInfos = document.createElement("div");
+    infosArticle.appendChild(titleInfos);
+    titleInfos.innerText = title;
+
+    const likesInfos = document.createElement("div");
+    infosArticle.appendChild(likesInfos);
+    likesInfos.className = "likesInfos";
+
+    likesInfos.innerText = likes;
+    const heartLikes = document.createElement("span");
+    heartLikes.className = "heartLikes";
+    likesInfos.appendChild(heartLikes);
+    heartLikes.innerHTML = '<i class="fa-solid fa-heart"></i>';
+
     return article;
   }
 

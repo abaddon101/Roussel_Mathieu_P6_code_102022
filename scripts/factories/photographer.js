@@ -42,6 +42,7 @@ function photographerFactory(data) {
     headerSection.className = "photograph-header";
     const titre = document.createElement("h1");
     titre.innerText = name;
+    titre.className = "nameHeader"
     const cityAndCountry = document.createElement("div");
     cityAndCountry.innerText = city + ", " + country;
     const descriptionPhotographer = document.createElement("div");
