@@ -25,7 +25,7 @@ async function init() {
   // mis en place du wrapper, filtre
   const wrapperContainer = document.querySelector(".wrapperContainer");
   wrapperContainer.innerHTML = `<div class = subtitleFilter>Trier par</div>
-  <ol class="listWrapper">
+  <ol class="listWrapper"><span class="chevron"><i class="fa-sharp fa-solid fa-chevron-up"></i></span>
     <li>Popularité</li>
     <li>Date</li>
     <li>Titre</li>

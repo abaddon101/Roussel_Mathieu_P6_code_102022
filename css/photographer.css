@@ -5,6 +5,8 @@
 .wrapperContainer {
   display: flex;
   flex-direction: row;
+  margin-top: 25px;
+  margin-left: 100px;
 }
 .subtitleFilter {
   font-weight: bold;
@@ -13,6 +15,7 @@
 }
 
 .listWrapper {
+  position: relative;
   list-style: none;
   border: 1px solid #901c1c;
   color: azure;
@@ -23,12 +26,10 @@
   padding-left: 15px;
   padding-top: 0px;
 }
- li:nth-child(1) {
-  border-bottom: 1px solid white;
-  padding-top: 15px;
-  padding-left: 5px;
-  padding-right: 40px;
-  padding-bottom: 15px;
+.chevron {
+  position: absolute;
+  right: 10px;
+  top: 5px;
 }
 li:nth-child(2) {
   border-bottom: 1px solid white;
@@ -38,13 +39,19 @@ li:nth-child(2) {
   padding-bottom: 15px;
 }
 li:nth-child(3) {
+  border-bottom: 1px solid white;
+  padding-top: 15px;
+  padding-left: 5px;
+  padding-right: 40px;
+  padding-bottom: 15px;
+}
+li:nth-child(4) {
   /*border-bottom: 1px solid white;*/
   padding-top: 15px;
   padding-left: 5px;
   padding-right: 40px;
   padding-bottom: 15px;
 }
-
 
 .mediaSection {
   /*display: grid;
