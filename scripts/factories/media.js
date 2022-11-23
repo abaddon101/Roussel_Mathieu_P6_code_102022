@@ -7,6 +7,7 @@ function mediaFactory(media, photographer) {
   // Creation du block page
   function getMediaCardDOM() {
     //console.log(getMediaCardDOM);
+
     const article = document.createElement("article");
 
     if (media.image) {

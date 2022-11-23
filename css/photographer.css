@@ -1,15 +1,60 @@
 #contact_modal {
   display: none;
 }
+/*Wrapper*/
+.wrapperContainer {
+  display: flex;
+  flex-direction: row;
+}
+.subtitleFilter {
+  font-weight: bold;
+  margin-right: 9px;
+  margin-top: 0px;
+}
+
+.listWrapper {
+  list-style: none;
+  border: 1px solid #901c1c;
+  color: azure;
+  background-color: #901c1c;
+  margin-top: 0px;
+  margin-right: 0px;
+  padding-right: 20px;
+  padding-left: 15px;
+  padding-top: 0px;
+}
+ li:nth-child(1) {
+  border-bottom: 1px solid white;
+  padding-top: 15px;
+  padding-left: 5px;
+  padding-right: 40px;
+  padding-bottom: 15px;
+}
+li:nth-child(2) {
+  border-bottom: 1px solid white;
+  padding-top: 15px;
+  padding-left: 5px;
+  padding-right: 40px;
+  padding-bottom: 15px;
+}
+li:nth-child(3) {
+  /*border-bottom: 1px solid white;*/
+  padding-top: 15px;
+  padding-left: 5px;
+  padding-right: 40px;
+  padding-bottom: 15px;
+}
+
 
 .mediaSection {
-  display: grid;
+  /*display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  */
   gap: 100px;
-  /*display: flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;*/
+  justify-content: space-between;
   /* border: 1px solid black;*/
   width: 90%;
   margin-left: 100px;
@@ -31,7 +76,7 @@ article {
   width: 100%;
 }
 
-.likesInfos{
+.likesInfos {
   display: flex;
   justify-content: space-around;
   width: 20%;
@@ -77,10 +122,10 @@ article {
 }
 
 .contact_button {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 22px;
+  /*font-weight: bold;*/
   color: white;
-  padding: 11px;
+  /*padding: 11px;*/
   width: 170px;
   height: 70px;
   border: none;
@@ -89,6 +134,8 @@ article {
   cursor: pointer;
   display: flex;
   align-self: center;
+  align-items: center;
+  justify-content: center;
   order: 1;
 }
 
