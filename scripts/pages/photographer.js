@@ -16,33 +16,40 @@ function getIdFromUrl() {
   return param1Id;
 }
 //
+
 async function init() {
   const paramId = getIdFromUrl();
   const photographerDisplayData = await getPhotographer(paramId);
   //console.log(photographerDisplayData);
-
   const mediaSection = document.querySelector(".mediaSection");
-  // mis en place du wrapper, filtre
   const wrapperContainer = document.querySelector(".wrapperContainer");
-  wrapperContainer.innerHTML = `<div class = subtitleFilter>Trier par</div>
-  <ol class="listWrapper"><span class="chevron"><i class="fa-sharp fa-solid fa-chevron-up"></i></span>
+  wrapperContainer.innerHTML = `
+  <p>Trier par</p>
+  <ul id="sub-pages-menu" class="closed">
     <li>Popularité</li>
     <li>Date</li>
     <li>Titre</li>
-  </ol> `;
+  </ul>`;
 
-  const medias = await getMedia(paramId);
-  displayData(photographerDisplayData, medias);
-  console.log(medias);
+  // mis en place du wrapper
+
+  const mediasList = await getMedia(paramId);
+  displayData(photographerDisplayData, mediasList);
+  console.log(mediasList);
+  displayMedia(mediasList, photographerDisplayData);
+}
+
+init();
+// recupère et crée les media, article grâce au forEach
+async function displayMedia(medias, photographerDisplayData) {
   medias.forEach((media) => {
     console.log(media);
+    const mediaSection = document.querySelector(".mediaSection");
     const mediaModel = mediaFactory(media, photographerDisplayData);
     const mediaCardDOM = mediaModel.getMediaCardDOM();
     mediaSection.appendChild(mediaCardDOM);
   });
 }
-
-init();
 
 async function displayData(photographer, media) {
   const headerSection = document.querySelector(".photograph-header-container");
