@@ -1,36 +1,4 @@
-/*wrapper dropDown  */
-.wrapperContainer {
-  margin: 25px 0 0 100px;
-  display: flex;
-  width: 330px;
-  justify-content: space-between;
-}
-
-ul {
-  overflow: hidden;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  width: 220px;
-  border-top: solid 1px #bbb;
-  transition: height 0.3s ease;
-}
-ul.closed {
-  height: 39px;
-}
-
-li {
-  line-height: 38px;
-  background: #eee;
-  border: solid 1px #bbb;
-  border-top: none;
-}
-li:hover {
-  background: #ccc;
-  color: #222;
-}
-
-/*wrapper dropDown End */
+@import url("dropdown.css");
 /* Section media & article*/
 .mediaSection {
   /*display: grid;
