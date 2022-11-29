@@ -62,14 +62,6 @@ async function init() {
     chevronDown.setAttribute("aria-expanded", "true");
     // dropdownButton.style.zIndex ='0';
     popularity.focus();
-
-    if (date.click()) {
-      let popularity = document.getElementById("option1");
-      let date = document.getElementById("option2");
-      let titre = document.getElementById("option3");
-      popularity.style.order = "0";
-      date.style.order = "1";
-    }
     titre.focus();
   }
 
