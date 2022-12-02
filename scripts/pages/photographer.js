@@ -30,14 +30,14 @@ async function init() {
   </h2>
   <div class="select-filter" id="select-filter">
       <button type="button"  aria-haspopup="true" aria-expanded="false" tabindex="0" aria-label="trier par filtres" class="select-filter_button" id="button-dropdown">
-        <span class="option1">&ensp;Popularité</span>
+        <span id="dropDownLibelle">Popularité</span>
         <span class="arrows fas fa-chevron-down" id="arrow-down"></span> 
       </button>
       <div class="container" id="listContainer">
         <ul role="listbox" aria-expanded="true" class="dropdownlist" id="dropdownlist" aria-activedescendant="option1" tabindex="0">
-          <li class="dropdownlist_choice" id="option1" role="option" aria-label="trier par popularité" tabindex="0">&ensp;Popularité</li>
-          <li class="dropdownlist_choice" id="option2" role="option" aria-label="trier par date" tabindex="0">&ensp;Date</li>
-          <li class="dropdownlist_choice" id="option3" role="option" aria-label="trier par titre" tabindex="0">&ensp;Titre</li> 
+          <li class="dropdownlist_choice" data-value="popularity" id="option1" role="option" aria-label="trier par popularité" tabindex="0">Popularité</li>
+          <li class="dropdownlist_choice" data-value="date" id="option2" role="option" aria-label="trier par date" tabindex="0">Date</li>
+          <li class="dropdownlist_choice" data-value="title" id="option3" role="option" aria-label="trier par titre" tabindex="0">Titre</li> 
         </ul> 
         <button type="button"  aria-haspopup="true" aria-expanded="true" tabindex="0" aria-label="fermer le choix de filtres" class="select-filter_button" id="button-dropup">
           <span class="arrows fas fa-chevron-up"></span>   
@@ -45,26 +45,26 @@ async function init() {
       </div>     
     </div>
 </section>`;
-
-  // mis en place du wrapper
   //////dropdown//////////
-
   let dropDownDiv = document.querySelector(".container");
   let chevronDown = document.getElementById("button-dropdown");
   let chevronUp = document.getElementById("button-dropup");
+  let libelleFilter = document.querySelector("#dropDownLibelle");
   let popularity = document.getElementById("option1");
   let date = document.getElementById("option2");
   let titre = document.getElementById("option3");
   let dropdownButton = document.querySelector(".select-filter_button span");
+  const dropdownlist = document.getElementById("listContainer");
+  // console.log(dropdownlist);
+  console.log(dropdownlist.children);
+
   /////ouverture du dropdown /////////////
   function dropDownOpen() {
     dropDownDiv.style.display = "flex";
     chevronDown.setAttribute("aria-expanded", "true");
-    // dropdownButton.style.zIndex ='0';
     popularity.focus();
     titre.focus();
   }
-
   /////fermeture du dropdown/////////////
   function dropDownClose() {
     dropDownDiv.style.display = "none";
@@ -73,19 +73,43 @@ async function init() {
   }
   chevronDown.addEventListener("click", () => dropDownOpen());
   chevronUp.addEventListener("click", () => dropDownClose());
-
+  /////// Select Option //////
+  function selectOption(event) {
+    const getLibelle = event.target.innerText;
+    libelleFilter.innerText = getLibelle;
+    dropDownClose();
+    sortAndDisplayBy(event.target.dataset.value);
+  }
+  popularity.addEventListener("click", selectOption);
+  date.addEventListener("click", selectOption);
+  titre.addEventListener("click", selectOption);
   const mediasList = await getMedia(paramId);
   displayData(photographerDisplayData, mediasList);
   console.log(mediasList);
-  displayMedia(mediasList, photographerDisplayData);
+  sortAndDisplayBy("popularity");
+  /////// Tri des médias //////
+
+  function sortAndDisplayBy(orderBy) {
+    displayMedia(mediasList, photographerDisplayData);
+    console.log(mediasList.sort());
+    console.log(orderBy);
+
+    if (orderBy === "popularity") {
+      mediasList.sort((a, b) => {
+        return b.likes - a.likes;
+      });
+    }
+  }
 }
 
+/////fermeture du dropdown End/////////////
 init();
 // recupère et crée les media, article grâce au forEach
 async function displayMedia(medias, photographerDisplayData) {
+  const mediaSection = document.querySelector(".mediaSection");
+  mediaSection.innerHTML = "";
   medias.forEach((media) => {
     console.log(media);
-    const mediaSection = document.querySelector(".mediaSection");
     const mediaModel = mediaFactory(media, photographerDisplayData);
     const mediaCardDOM = mediaModel.getMediaCardDOM();
     mediaSection.appendChild(mediaCardDOM);

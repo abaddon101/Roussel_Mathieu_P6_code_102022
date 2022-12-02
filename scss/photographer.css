@@ -83,4 +83,8 @@ article {
   order: 2;
 }
 
+#option1.is-not-visible {
+  display: block;
+}
+
 /* Section media & article End*//*# sourceMappingURL=photographer.css.map */
