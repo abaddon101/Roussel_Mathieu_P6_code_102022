@@ -23,6 +23,11 @@ article {
   height: 400px;
   border-radius: 10px;
 }
+article a {
+  width: 430px;
+  height: 400px;
+  cursor: pointer;
+}
 
 .infosArticle {
   margin-top: 5px;
@@ -87,4 +92,20 @@ article {
   display: block;
 }
 
-/* Section media & article End*//*# sourceMappingURL=photographer.css.map */
+/* Section media & article End*/
+/*LightBox*/
+.lightboxModal {
+  margin-top: 125px;
+  border: 1px solid black;
+  width: 600px;
+  height: 600px;
+}
+.lightboxModal .fa-regular,
+.lightboxModal .far {
+  font-weight: 800;
+}
+
+#lightBoxImg {
+  max-width: 900px;
+  max-height: 900px;
+}/*# sourceMappingURL=photographer.css.map */

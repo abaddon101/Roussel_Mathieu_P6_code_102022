@@ -1,4 +1,4 @@
-// Retour page accueil
+///////////// Retour page accueil /////////////
 const indexLogo = document.querySelector(".logo");
 indexLogo.onclick = function () {
   location.href = "index.html";
@@ -8,14 +8,14 @@ function setFocusToElements() {
   document.htmlElement().focus;
   console.log(setFocusToElements);
 }
-//
+/////////////   /////////////
 function getIdFromUrl() {
   const photographersValue = window.location.search;
   const urlParams = new URLSearchParams(photographersValue);
   const param1Id = urlParams.get("id");
   return param1Id;
 }
-//
+/////////////   /////////////
 
 async function init() {
   const paramId = getIdFromUrl();
@@ -45,7 +45,7 @@ async function init() {
       </div>     
     </div>
 </section>`;
-  //////dropdown//////////
+  ///////////// dropdown /////////////
   let dropDownDiv = document.querySelector(".container");
   let chevronDown = document.getElementById("button-dropdown");
   let chevronUp = document.getElementById("button-dropup");
@@ -58,14 +58,14 @@ async function init() {
   // console.log(dropdownlist);
   console.log(dropdownlist.children);
 
-  /////ouverture du dropdown /////////////
+  ///////////// ouverture du dropdown /////////////
   function dropDownOpen() {
     dropDownDiv.style.display = "flex";
     chevronDown.setAttribute("aria-expanded", "true");
     popularity.focus();
     titre.focus();
   }
-  /////fermeture du dropdown/////////////
+  ///////////// fermeture du dropdown /////////////
   function dropDownClose() {
     dropDownDiv.style.display = "none";
     chevronDown.setAttribute("aria-expanded", "false");
@@ -73,7 +73,9 @@ async function init() {
   }
   chevronDown.addEventListener("click", () => dropDownOpen());
   chevronUp.addEventListener("click", () => dropDownClose());
-  /////// Select Option //////
+
+  ///////////// Select Option /////////////
+
   function selectOption(event) {
     const getLibelle = event.target.innerText;
     libelleFilter.innerText = getLibelle;
@@ -87,10 +89,10 @@ async function init() {
   displayData(photographerDisplayData, mediasList);
   console.log(mediasList);
   sortAndDisplayBy("popularity");
-  /////// Tri des médias //////
+  lightBox();
+  ///////////// Tri des médias /////////////
 
   function sortAndDisplayBy(orderBy) {
-    displayMedia(mediasList, photographerDisplayData);
     console.log(mediasList.sort());
     console.log(orderBy);
 
@@ -99,12 +101,32 @@ async function init() {
         return b.likes - a.likes;
       });
     }
+    if (orderBy === "date") {
+      mediasList.sort((a, b) => {
+        // new Date permet de transformer une date en string pour qu'elle soit plus facile à trier
+        let dateA = new Date(a.date);
+        let dateB = new Date(b.date);
+        return dateA - dateB;
+      });
+    }
+    if (orderBy === "title") {
+      mediasList.sort((a, b) => {
+        // toLowerCase ne prend pas en compte majuscule ou minuscule pour le triage des strings
+        let titleA = a.title.toLowerCase();
+        let titleB = b.title.toLowerCase();
+        if (titleA < titleB) return -1;
+        if (titleA > titleB) return 1;
+
+        return 0;
+      });
+    }
+    displayMedia(mediasList, photographerDisplayData);
   }
+  ///////////// fermeture du dropdown End /////////////
 }
 
-/////fermeture du dropdown End/////////////
 init();
-// recupère et crée les media, article grâce au forEach
+///////////// recupère et crée les media, article grâce au forEach /////////////
 async function displayMedia(medias, photographerDisplayData) {
   const mediaSection = document.querySelector(".mediaSection");
   mediaSection.innerHTML = "";
@@ -114,14 +136,13 @@ async function displayMedia(medias, photographerDisplayData) {
     const mediaCardDOM = mediaModel.getMediaCardDOM();
     mediaSection.appendChild(mediaCardDOM);
   });
+  initLightBoxEvent();
 }
 
 async function displayData(photographer, media) {
   const headerSection = document.querySelector(".photograph-header-container");
   // const mediaSection = document.querySelector(".mediaSection");
-
   const photographerModel = photographerFactory(photographer, media);
-
   console.log(photographerModel);
   // j'appel headerPhotographer grâce à photographerModel
   const headerphotographer = photographerModel.headerPhotographer();

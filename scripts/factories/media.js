@@ -4,7 +4,7 @@ function mediaFactory(media, photographer) {
   //console.log(media);
   // console.log(photographer);
 
-  // Creation du block page
+  ///////////// Creation du block page /////////////
   function getMediaCardDOM() {
     //console.log(getMediaCardDOM);
 
@@ -13,24 +13,33 @@ function mediaFactory(media, photographer) {
     if (media.image) {
       const pictureMedia = `assets/FishEye_Photos/Sample Photos/${photographerId}/${image}`;
       const imgMedia = document.createElement("img");
+      //const imgMediaLink = document.createElement("a");
+
+      //imgMediaLink.setAttribute("src", pictureMedia);
+      article.appendChild(imgMedia);
+      //imgMediaLink.appendChild(imgMedia);
       imgMedia.className = "mediaImage";
       imgMedia.setAttribute("src", pictureMedia);
-      article.appendChild(imgMedia);
     }
-    // Dans mon article, si je trouve une vidéo dans le dossier je veux qu'elle soit traitée comme tal
+
+    // Dans mon article, si je trouve une vidéo dans le dossier je veux qu'elle soit traitée comme tel
     else if (media.video) {
       const videoMedia = `assets/FishEye_Photos/Sample Photos/${photographerId}/${video}`;
       const movieMedia = document.createElement("video");
+      //const movieMediaLink = document.createElement("a");
+
+      //movieMediaLink.setAttribute("src", videoMedia);
+      article.appendChild(movieMedia);
+      //movieMediaLink.appendChild(movieMedia);
       movieMedia.className = "movieMedia";
       movieMedia.setAttribute("src", videoMedia);
       movieMedia.setAttribute("controls", videoMedia);
-
-      article.appendChild(movieMedia);
       movieMedia.addEventListener("onclick", playPauseMedia);
       function playPauseMedia() {
         play.setAttribute("data-icon", "P");
       }
     }
+
     const infosArticle = document.createElement("div");
     article.appendChild(infosArticle);
     infosArticle.className = "infosArticle";
@@ -52,6 +61,7 @@ function mediaFactory(media, photographer) {
   }
 
   return {
+    mediaFactory,
     getMediaCardDOM,
   };
 }
