@@ -1,5 +1,6 @@
 @import url("dropdown.css");
 @import url("modale.css");
+@import url("lightbox.css");
 /* Section media & article*/
 .mediaSection {
   /*display: grid;
@@ -92,20 +93,4 @@ article a {
   display: block;
 }
 
-/* Section media & article End*/
-/*LightBox*/
-.lightboxModal {
-  margin-top: 125px;
-  border: 1px solid black;
-  width: 600px;
-  height: 600px;
-}
-.lightboxModal .fa-regular,
-.lightboxModal .far {
-  font-weight: 800;
-}
-
-#lightBoxImg {
-  max-width: 900px;
-  max-height: 900px;
-}/*# sourceMappingURL=photographer.css.map */
+/* Section media & article End*//*# sourceMappingURL=photographer.css.map */

@@ -26,18 +26,11 @@ function mediaFactory(media, photographer) {
     else if (media.video) {
       const videoMedia = `assets/FishEye_Photos/Sample Photos/${photographerId}/${video}`;
       const movieMedia = document.createElement("video");
-      //const movieMediaLink = document.createElement("a");
 
-      //movieMediaLink.setAttribute("src", videoMedia);
       article.appendChild(movieMedia);
-      //movieMediaLink.appendChild(movieMedia);
       movieMedia.className = "movieMedia";
       movieMedia.setAttribute("src", videoMedia);
-      movieMedia.setAttribute("controls", videoMedia);
-      movieMedia.addEventListener("onclick", playPauseMedia);
-      function playPauseMedia() {
-        play.setAttribute("data-icon", "P");
-      }
+
     }
 
     const infosArticle = document.createElement("div");

@@ -1,0 +1,119 @@
+/*LightBox*/
+article{
+  cursor: pointer;
+}
+.lightboxModal {
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: none;
+  .lightBoxCLose {
+    display: flex;
+    position: absolute;
+    right: 120px;
+    border: none;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    background: none;
+
+    i:hover {
+      color: #c21414;
+    }
+  }
+
+  .fa-regular,
+  .far {
+    font-weight: 900;
+    color: #901c1c;
+    font-size: 50px;
+    cursor: pointer;
+  }
+}
+.lightBoxPArent {
+  // display: flex;
+  // flex-direction: column;
+  // position: relative;
+  // border: 1px solid red;
+
+  //arrows
+  .fa-solid,
+  .fas {
+    font-weight: 900;
+    color: #901c1c;
+    font-size: 50px;
+    cursor: pointer;
+  }
+}
+.lightBoxContent {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.arrows {
+  display: flex;
+  flex-direction: row;
+}
+
+.lightBoxPrev {
+  width: 100px;
+  height: 150px;
+  position: absolute;
+  left: 100px;
+  top: 350px;
+  border: none;
+  background: none;
+  i:hover {
+    color: #c21414;
+  }
+}
+.lightBoxNext {
+  width: 100px;
+  height: 150px;
+  position: absolute;
+  top: 350px;
+  right: 100px;
+  border: none;
+  background: none;
+  i:hover {
+    color: #c21414;
+  }
+}
+
+#lightBoxImg {
+  object-fit: cover;
+  display: flex;
+  width: 1400px;
+  height: 800px;
+}
+
+#lightBoxMovie {
+  object-fit: cover;
+  display: flex;
+  width: 1400px;
+  height: 800px;
+}
+.active {
+  border-radius: 1px;
+  object-fit: cover;
+  display: flex;
+  width: 865px;
+  height: 865px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px 0px gray;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
