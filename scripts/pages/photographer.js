@@ -90,6 +90,7 @@ async function init() {
   console.log(mediasList);
   sortAndDisplayBy("popularity");
   lightBox();
+  likePriceContainer();
   ///////////// Tri des médias /////////////
 
   function sortAndDisplayBy(orderBy) {
@@ -136,7 +137,7 @@ async function displayMedia(medias, photographerDisplayData) {
     const mediaCardDOM = mediaModel.getMediaCardDOM();
     mediaSection.appendChild(mediaCardDOM);
   });
-  initLightBoxEvent();
+  lightBox();
 }
 
 async function displayData(photographer, media) {

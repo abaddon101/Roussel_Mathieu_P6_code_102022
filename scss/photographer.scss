@@ -1,6 +1,7 @@
 @import url("dropdown.css");
 @import url("modale.css");
 @import url("lightbox.css");
+@import url("likePriceContainer.css");
 
 /* Section media & article*/
 .mediaSection {
@@ -16,6 +17,7 @@
   width: 90%;
   margin-left: 100px;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 article {
   display: flex;
@@ -83,5 +85,3 @@ article {
   display: block;
 }
 /* Section media & article End*/
-
-

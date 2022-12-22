@@ -61,6 +61,7 @@ function lightBox() {
     } else {
       count = 0;
     }
+
     let lightBoxImg = document.querySelector("#lightBoxImg");
     let lightBoxMovie = document.querySelector("#lightBoxMovie");
     let lightBoxActiveElement = null;
@@ -86,14 +87,17 @@ function lightBox() {
 
   ///////////// Function permettant d'utiliser la flèche de gauche /////////////
   function prevSlide() {
-    if (count < numberObj - 1) {
+    if (count > 0) {
       count--;
     } else {
-      count = 0;
+      // recupère le derier element de mon numberObj
+      count = numberObj - 1;
     }
     let lightBoxImg = document.querySelector("#lightBoxImg");
     let lightBoxMovie = document.querySelector("#lightBoxMovie");
     let lightBoxActiveElement = null;
+    console.log(count);
+    console.log(selectObj);
     if (selectObj[count].tagName == "IMG") {
       lightBoxMovie.style.display = "none";
       lightBoxImg.style.display = "block";
@@ -107,8 +111,6 @@ function lightBox() {
     lightBoxActiveElement.classList.remove("active");
 
     lightBoxActiveElement.classList.add("active");
-    console.log(count);
-    console.log(selectObj[count].src);
 
     lightBoxActiveElement.setAttribute("src", selectObj[count].src);
   }
@@ -121,51 +123,26 @@ function lightBox() {
   }
 
   closeModaleLightBox.addEventListener("click", closeLightBox);
-}
 
-function initLightBoxEvent() {
-  const selectObj = document.querySelectorAll(
-    ".mediaSection img.mediaImage , .mediaSection video.movieMedia"
-  );
-  console.log(selectObj);
-  selectObj.forEach((obj) => {
-    obj.addEventListener("click", showLightBox);
-  });
-}
-///////////// function permettant de cibler l'élément à afficher  /////////////
-function showLightBox(event) {
-  // let lightBoxImg = document.querySelector("#lightBoxImg");
-  //   let lightBoxMovie = document.querySelector("#lightBoxMovie");
-
-  console.log(event.target.src);
-  const modaleLightBox = document.querySelector(".lightboxModal");
-  modaleLightBox.style.display = "block";
-
-  let lightBoxImg = document.querySelector("#lightBoxImg");
-  lightBoxImg.setAttribute("src", event.target.src);
-
-  let lightBoxMovie = document.querySelector("#lightBoxMovie");
-  lightBoxMovie.setAttribute("src", event.target.src);
-  const selectObj = document.querySelectorAll(
-    ".mediaSection img.mediaImage , .mediaSection video.movieMedia"
-  );
-  let count = 0;
-  let lightBoxActiveElement = null;
-
-  if (selectObj[count].tagName == "IMG") {
-    lightBoxMovie.style.display = "none";
-    lightBoxImg.style.display = "block";
-    lightBoxActiveElement = lightBoxImg;
-  } else {
-    lightBoxMovie.style.display = "block";
-    lightBoxImg.style.display = "none";
-    lightBoxActiveElement = lightBoxMovie;
+  function initLightBoxEvent() {
+    const selectObj = document.querySelectorAll(
+      ".mediaSection img.mediaImage , .mediaSection video.movieMedia"
+    );
+    console.log(selectObj);
+    selectObj.forEach((obj) => {
+      obj.addEventListener("click", showLightBox);
+    });
   }
-  lightBoxActiveElement.classList.remove("active");
+  ///////////// function permettant de cibler l'élément à afficher  /////////////
+  function showLightBox(event) {
+    const selectObj = document.querySelectorAll(
+      ".mediaSection img.mediaImage , .mediaSection video.movieMedia"
+    );
 
-  lightBoxActiveElement.classList.add("active");
-  function conditionForVideo() {
-    if (selectObj[count].tagName == "IMG") {
+    let lightBoxImg = document.querySelector("#lightBoxImg");
+    let lightBoxMovie = document.querySelector("#lightBoxMovie");
+
+    if (event.target.tagName == "IMG") {
       lightBoxMovie.style.display = "none";
       lightBoxImg.style.display = "block";
       lightBoxActiveElement = lightBoxImg;
@@ -177,6 +154,13 @@ function showLightBox(event) {
     lightBoxActiveElement.classList.remove("active");
 
     lightBoxActiveElement.classList.add("active");
+
+    console.log(event.target.src);
+    const modaleLightBox = document.querySelector(".lightboxModal");
+    modaleLightBox.style.display = "block";
+    lightBoxActiveElement.setAttribute("src", event.target.src);
+
+    count = Array.from(selectObj).indexOf(event.target);
   }
-  conditionForVideo();
+  initLightBoxEvent();
 }

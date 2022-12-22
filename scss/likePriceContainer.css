@@ -1,0 +1,11 @@
+#likePriceContainer {
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 5px 5px 0px 0px;
+  width: 340px;
+  height: 60px;
+  position: fixed;
+  right: 20px;
+  bottom: 1px;
+  background-color: #db8876;
+}/*# sourceMappingURL=likePriceContainer.css.map */
