@@ -42,7 +42,7 @@ function lightBox() {
     ".mediaSection img.mediaImage , .mediaSection video.movieMedia"
   );
 
-  console.log(selectObj);
+  // console.log(selectObj);
 
   /////////////  création du slider /////////////
   const numberObj = selectObj.length;
@@ -128,7 +128,7 @@ function lightBox() {
     const selectObj = document.querySelectorAll(
       ".mediaSection img.mediaImage , .mediaSection video.movieMedia"
     );
-    console.log(selectObj);
+    // console.log(selectObj);
     selectObj.forEach((obj) => {
       obj.addEventListener("click", showLightBox);
     });

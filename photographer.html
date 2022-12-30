@@ -28,12 +28,35 @@
           <h2>Contactez-moi</h2>
           <img class="closeContactModal" src="assets/icons/close.svg" />
         </header>
-        <form>
-          <div>
-            <label>Prénom</label>
-            <input />
+        <form id="formular">
+          <div class="arrayInputModal">
+            <label
+              >Prénom<input
+                class="text-control"
+                type="text"
+                id="first"
+                data-error-field="#missingFirstName"
+                name="first"
+                minlength="2"
+            /></label>
+            <label
+              >Nom<input
+                class="text-control"
+                type="text"
+                id="last"
+                name="last"
+                minlength="2"
+            /></label>
+            <label
+              >Email<input
+                class="text-control"
+                type="email"
+                id="email"
+                name="email"
+            /></label>
+            <label>Votre message<input /></label>
           </div>
-          <button class="contact_button">Envoyer</button>
+          <button class="submitButton">Envoyer</button>
         </form>
       </div>
     </div>

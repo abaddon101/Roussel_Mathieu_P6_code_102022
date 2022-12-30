@@ -53,7 +53,7 @@ function photographerFactory(data) {
     console.log(picture2);
     headerSection.appendChild(profilPicturePhotographer);
     const bouton = document.createElement("button");
-    bouton.className = "contact_button";
+    bouton.className = "contactButton";
     bouton.innerText = "Contactez-moi";
     headerSection.appendChild(bouton);
     profilPicturePhotographer.setAttribute("src", picture2);

@@ -3,7 +3,7 @@
   display: none;
 }
 
-.contact_button {
+.contactButton {
   font-size: 22px;
   /*font-weight: bold;*/
   color: white;
@@ -19,6 +19,18 @@
   align-items: center;
   justify-content: center;
   order: 1;
+}
+
+.btn-submit {
+  font-size: 22px;
+  /*font-weight: bold;*/
+  color: white;
+  /*padding: 11px;*/
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
 }
 
 .modal {
@@ -68,6 +80,36 @@ form div {
   width: 100%;
   align-items: self-start;
   margin-bottom: 26px;
+}
+
+#missingFirstName {
+  color: red;
+  font-size: 13px;
+  display: none;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 100%;
+  align-items: center;
+}
+
+#missingLastName {
+  color: red;
+  font-size: 13px;
+  display: none;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 100%;
+  align-items: center;
+}
+
+#missingEmail {
+  color: red;
+  font-size: 13px;
+  display: none;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 100%;
+  align-items: center;
 }
 
 /*Modale Formular End *//*# sourceMappingURL=modale.css.map */

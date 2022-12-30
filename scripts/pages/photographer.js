@@ -19,6 +19,7 @@ function getIdFromUrl() {
 
 async function init() {
   const paramId = getIdFromUrl();
+
   const photographerDisplayData = await getPhotographer(paramId);
   //console.log(photographerDisplayData);
   const mediaSection = document.querySelector(".mediaSection");
@@ -89,8 +90,9 @@ async function init() {
   displayData(photographerDisplayData, mediasList);
   console.log(mediasList);
   sortAndDisplayBy("popularity");
+
   lightBox();
-  likePriceContainer();
+
   ///////////// Tri des médias /////////////
 
   function sortAndDisplayBy(orderBy) {
@@ -137,7 +139,9 @@ async function displayMedia(medias, photographerDisplayData) {
     const mediaCardDOM = mediaModel.getMediaCardDOM();
     mediaSection.appendChild(mediaCardDOM);
   });
+
   lightBox();
+  LaunchModal();
 }
 
 async function displayData(photographer, media) {
