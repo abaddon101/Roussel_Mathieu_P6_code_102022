@@ -9,27 +9,71 @@ function LaunchModal() {
 
   function submitFormular(e) {
     const first = document.querySelector("#first");
+    const last = document.querySelector("#last");
+    const email = document.querySelector("#email");
+
     const validFirstname = function (first) {
       let firstRegExp = new RegExp("^[a-zA-Z]{2,}$", "i");
       let testFirstName = firstRegExp.test(first.value);
       console.log(testFirstName);
       return testFirstName;
     };
-    const errorMessage = function () {
-      let errorMessage = document.querySelector("#missingFirstName");
-      errorMessage.style.display = "flex";
+    ///
+    const validLastName = function (last) {
+      let lastRegExp = new RegExp("^[a-zA-Z]{2,}$", "i");
+      let testLastName = lastRegExp.test(last.value);
+      console.log(testLastName);
+      return testLastName;
     };
-    const errorMessageStop = function () {
-      let errorMessage = document.querySelector("#missingFirstName");
-      errorMessage.style.display = "none";
+    ///
+    const validEmail = function (email) {
+      let emailRegExp = new RegExp(
+        "^[a-zA-Z0-9.-_]+@[a-zA-Z0-9.-_]+.[a-z]{2,10}$",
+        "i"
+      );
+      let testEmail = emailRegExp.test(email.value);
+      console.log(testEmail);
+      return testEmail;
+    };
+    ///// /////
+    const errorMessage = function () {
+      let errorMessageFirstName = document.querySelector("#missingFirstName");
+      errorMessageFirstName.style.display = "flex";
+      ///
+      let errorMessageLastName = document.querySelector("#missingLastName");
+      errorMessageLastName.style.display = "flex";
+      ///
+      let errorMessageEmail = document.querySelector("#missingEmail");
+      errorMessageEmail.style.display = "flex";
+      ///
     };
 
-    if (validFirstname(first) == false) {
+    const errorMessageStop = function () {
+      let errorMessageFirstName = document.querySelector("#missingFirstName");
+      errorMessageFirstName.style.display = "none";
+      ///
+      let errorMessageLastName = document.querySelector("#missingLastName");
+      errorMessageLastName.style.display = "none";
+      ///
+      let errorMessageEmail = document.querySelector("#missingEmail");
+      errorMessageEmail.style.display = "none";
+    };
+
+    if (
+      validFirstname(first) == false ||
+      validLastName(last) == false ||
+      validEmail(email) == ""
+    ) {
       console.log("false");
       const modal = document.querySelector("#contact_modal");
+      modal.style.display = "flex";
       e.preventDefault();
       errorMessage();
-    } else if (validFirstname(first) == true) {
+    } else if (
+      validFirstname(first) == true ||
+      validLastName(last) == true ||
+      validEmail == !""
+    ) {
       console.log("true");
       const modal = document.querySelector("#contact_modal");
       modal.style.display = "none";
