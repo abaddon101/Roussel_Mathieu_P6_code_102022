@@ -30,31 +30,36 @@
         </header>
         <form id="formular">
           <div class="arrayInputModal">
-            <label
-              >Prénom<input
-                class="text-control"
-                type="text"
-                id="first"
-                data-error-field="#missingFirstName"
-                name="first"
-                minlength="2"
-            /></label>
-            <label
-              >Nom<input
-                class="text-control"
-                type="text"
-                id="last"
-                name="last"
-                minlength="2"
-            /></label>
-            <label
-              >Email<input
-                class="text-control"
-                type="email"
-                id="email"
-                name="email"
-            /></label>
-            <label>Votre message<input /></label>
+            <label for="first">Prénom</label
+            ><input
+              id="first"
+              class="text-control"
+              type="text"
+              name="first"
+              minlength="2"
+            />
+            <span id="missingFirstName"
+              ><i class="fa-solid fa-triangle-exclamation"></i> Veuillez rentrer
+              au moins deux lettres</span
+            >
+            <label for="last">Nom</label
+            ><input
+              id="last"
+              class="text-control"
+              type="text"
+              name="last"
+              minlength="2"
+            />
+            <label for="email">Email</label
+            ><input id="email" class="text-control" type="text" name="email" />
+            <label for="message">Votre message</label
+            ><input
+              id="message"
+              class="text-control"
+              type="text"
+              name="message"
+              minlength="10"
+            />
           </div>
           <button class="submitButton">Envoyer</button>
         </form>

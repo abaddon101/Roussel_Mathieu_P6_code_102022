@@ -141,7 +141,6 @@ async function displayMedia(medias, photographerDisplayData) {
   });
 
   lightBox();
-  LaunchModal();
 }
 
 async function displayData(photographer, media) {
@@ -152,4 +151,5 @@ async function displayData(photographer, media) {
   // j'appel headerPhotographer grâce à photographerModel
   const headerphotographer = photographerModel.headerPhotographer();
   headerSection.appendChild(headerphotographer);
+  LaunchModal();
 }
