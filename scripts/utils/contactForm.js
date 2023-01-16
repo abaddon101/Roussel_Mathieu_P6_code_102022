@@ -11,7 +11,8 @@ function LaunchModal() {
     const first = document.querySelector("#first");
     const last = document.querySelector("#last");
     const email = document.querySelector("#email");
-
+    const message = document.querySelector("#message");
+    ///
     const validFirstname = function (first) {
       let firstRegExp = new RegExp("^[a-zA-Z]{2,}$", "i");
       let testFirstName = firstRegExp.test(first.value);
@@ -35,7 +36,13 @@ function LaunchModal() {
       console.log(testEmail);
       return testEmail;
     };
-    ///// /////
+    ///
+    const validMessage = function (message) {
+      let messageRegExp = new RegExp("^[a-zA-Z]{10,}$", "i");
+      let testMessageName = messageRegExp.test(message.value);
+      console.log(testMessageName);
+      return testMessageName;
+    };
     const errorMessage = function () {
       let errorMessageFirstName = document.querySelector("#missingFirstName");
       errorMessageFirstName.style.display = "flex";
@@ -46,6 +53,8 @@ function LaunchModal() {
       let errorMessageEmail = document.querySelector("#missingEmail");
       errorMessageEmail.style.display = "flex";
       ///
+      let errorMessageMsg = document.querySelector("#missingMessage");
+      errorMessageMsg.style.display = "flex";
     };
 
     const errorMessageStop = function () {
@@ -57,12 +66,16 @@ function LaunchModal() {
       ///
       let errorMessageEmail = document.querySelector("#missingEmail");
       errorMessageEmail.style.display = "none";
+      ///
+      let errorMessageMsg = document.querySelector("#missingMessage");
+      errorMessageMsg.style.display = "none";
     };
 
     if (
       validFirstname(first) == false ||
       validLastName(last) == false ||
-      validEmail(email) == ""
+      validEmail(email) == "" ||
+      validMessage(message) == false
     ) {
       console.log("false");
       const modal = document.querySelector("#contact_modal");
@@ -72,9 +85,10 @@ function LaunchModal() {
     } else if (
       validFirstname(first) == true ||
       validLastName(last) == true ||
-      validEmail == !""
+      validEmail == !"" ||
+      validMessage(message) == true
     ) {
-      console.log("true");
+      // console.log("true");
       const modal = document.querySelector("#contact_modal");
       modal.style.display = "none";
       e.preventDefault();
