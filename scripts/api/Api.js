@@ -16,7 +16,7 @@ async function getPhotographer(id) {
   );
 }
 
-// chargé de recuperer les données dess medias
+// chargé de recuperer les données des medias
 async function getMedia(photographerId) {
   return (
     fetch("./data/photographers.json")

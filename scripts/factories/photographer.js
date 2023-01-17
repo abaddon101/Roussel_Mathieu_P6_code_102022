@@ -9,8 +9,11 @@ function photographerFactory(data) {
     article.onclick = function () {
       location.href = `photographer.html?id=${id}`;
     };
+    // article présentant les différents photographes
     const img = document.createElement("img");
     article.appendChild(img);
+    // ajout aria label avec name pour identifier les photographes
+    article.setAttribute("aria-label", name)
     img.style.borderRadius = "100%";
     img.style.objectFit = "cover";
     article.style.cursor = "pointer";
@@ -49,8 +52,10 @@ function photographerFactory(data) {
     descriptionPhotographer.innerText = tagline;
     const profilPicturePhotographer = document.createElement("img");
     profilPicturePhotographer.className += "imgPhotoPage";
+    profilPicturePhotographer.setAttribute("alt",portrait)
+
     const picture2 = `assets/photographersMini/${portrait}`;
-    console.log(picture2);
+    // console.log(picture2);
     headerSection.appendChild(profilPicturePhotographer);
     const bouton = document.createElement("button");
     bouton.className = "contactButton";

@@ -45,29 +45,37 @@ function LaunchModal() {
     };
     const errorMessage = function () {
       let errorMessageFirstName = document.querySelector("#missingFirstName");
+      first.style.border = "2px solid red";
       errorMessageFirstName.style.display = "flex";
       ///
       let errorMessageLastName = document.querySelector("#missingLastName");
+      last.style.border = "2px solid red";
       errorMessageLastName.style.display = "flex";
       ///
       let errorMessageEmail = document.querySelector("#missingEmail");
+      email.style.border = "2px solid red";
       errorMessageEmail.style.display = "flex";
       ///
       let errorMessageMsg = document.querySelector("#missingMessage");
+      message.style.border = "2px solid red";
       errorMessageMsg.style.display = "flex";
     };
 
     const errorMessageStop = function () {
       let errorMessageFirstName = document.querySelector("#missingFirstName");
+      first.style.border = "none";
       errorMessageFirstName.style.display = "none";
       ///
       let errorMessageLastName = document.querySelector("#missingLastName");
+      first.style.border = "none";
       errorMessageLastName.style.display = "none";
       ///
       let errorMessageEmail = document.querySelector("#missingEmail");
+      first.style.border = "none";
       errorMessageEmail.style.display = "none";
       ///
       let errorMessageMsg = document.querySelector("#missingMessage");
+      first.style.border = "none";
       errorMessageMsg.style.display = "none";
     };
 

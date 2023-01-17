@@ -46,7 +46,7 @@ function lightBox() {
 
   /////////////  création du slider /////////////
   const numberObj = selectObj.length;
-  console.log(numberObj);
+  // console.log(numberObj);
   const closeBtn = document.querySelector(".lightBoxCLose");
   closeBtn.id = "closeModaleLightBox";
   const next = document.querySelector(".lightBoxNext");

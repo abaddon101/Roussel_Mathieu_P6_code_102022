@@ -20,17 +20,18 @@ function mediaFactory(media, photographer) {
       //imgMediaLink.appendChild(imgMedia);
       imgMedia.className = "mediaImage";
       imgMedia.setAttribute("src", pictureMedia);
+      imgMedia.setAttribute("alt", title);
     }
 
     // Dans mon article, si je trouve une vidéo dans le dossier je veux qu'elle soit traitée comme tel
     else if (media.video) {
       const videoMedia = `assets/FishEye_Photos/Sample Photos/${photographerId}/${video}`;
       const movieMedia = document.createElement("video");
+      movieMedia.setAttribute("alt", title);
 
       article.appendChild(movieMedia);
       movieMedia.className = "movieMedia";
       movieMedia.setAttribute("src", videoMedia);
-
     }
 
     const infosArticle = document.createElement("div");
@@ -48,7 +49,8 @@ function mediaFactory(media, photographer) {
     const heartLikes = document.createElement("span");
     heartLikes.className = "heartLikes";
     likesInfos.appendChild(heartLikes);
-    heartLikes.innerHTML = '<i class="fa-solid fa-heart"></i>';
+    heartLikes.innerHTML = '<i class="heartLike fa-solid fa-heart" data-id=" '+ media.id +'"></i>';
+  
 
     return article;
   }

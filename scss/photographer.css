@@ -47,6 +47,15 @@ article a {
   width: 20%;
 }
 
+.heartLikeFooter {
+  color: #901c1c;
+}
+
+.heartLikes i {
+  color: #901c1c;
+  font-weight: initial;
+}
+
 .mediaImage {
   width: 100%;
   height: 100%;

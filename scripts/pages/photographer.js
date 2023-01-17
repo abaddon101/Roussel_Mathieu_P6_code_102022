@@ -6,7 +6,7 @@ indexLogo.onclick = function () {
 indexLogo.style.cursor = "pointer";
 function setFocusToElements() {
   document.htmlElement().focus;
-  console.log(setFocusToElements);
+  // console.log(setFocusToElements);
 }
 /////////////   /////////////
 function getIdFromUrl() {
@@ -29,7 +29,7 @@ async function init() {
   <h2>
       <label class="dropdown-label" id ="dropdown-label">Trier par</label>
   </h2>
-  <div class="select-filter" id="select-filter">
+  <div class="select-filter" id="select-filter" >
       <button type="button"  aria-haspopup="true" aria-expanded="false" tabindex="0" aria-label="trier par filtres" class="select-filter_button" id="button-dropdown">
         <span id="dropDownLibelle">Popularité</span>
         <span class="arrows fas fa-chevron-down" id="arrow-down"></span> 
@@ -57,7 +57,7 @@ async function init() {
   let dropdownButton = document.querySelector(".select-filter_button span");
   const dropdownlist = document.getElementById("listContainer");
   // console.log(dropdownlist);
-  console.log(dropdownlist.children);
+  // console.log(dropdownlist.children);
 
   ///////////// ouverture du dropdown /////////////
   function dropDownOpen() {
@@ -88,7 +88,7 @@ async function init() {
   titre.addEventListener("click", selectOption);
   const mediasList = await getMedia(paramId);
   displayData(photographerDisplayData, mediasList);
-  console.log(mediasList);
+  // console.log(mediasList);
   sortAndDisplayBy("popularity");
 
   lightBox();
@@ -96,8 +96,8 @@ async function init() {
   ///////////// Tri des médias /////////////
 
   function sortAndDisplayBy(orderBy) {
-    console.log(mediasList.sort());
-    console.log(orderBy);
+    // console.log(mediasList.sort());
+    // console.log(orderBy);
 
     if (orderBy === "popularity") {
       mediasList.sort((a, b) => {
@@ -134,12 +134,13 @@ async function displayMedia(medias, photographerDisplayData) {
   const mediaSection = document.querySelector(".mediaSection");
   mediaSection.innerHTML = "";
   medias.forEach((media) => {
-    console.log(media);
+    // console.log(media);
     const mediaModel = mediaFactory(media, photographerDisplayData);
     const mediaCardDOM = mediaModel.getMediaCardDOM();
     mediaSection.appendChild(mediaCardDOM);
   });
-
+  console.log(medias);
+  likePriceContainer(medias);
   lightBox();
 }
 
@@ -147,7 +148,7 @@ async function displayData(photographer, media) {
   const headerSection = document.querySelector(".photograph-header-container");
   // const mediaSection = document.querySelector(".mediaSection");
   const photographerModel = photographerFactory(photographer, media);
-  console.log(photographerModel);
+  // console.log(photographerModel);
   // j'appel headerPhotographer grâce à photographerModel
   const headerphotographer = photographerModel.headerPhotographer();
   headerSection.appendChild(headerphotographer);

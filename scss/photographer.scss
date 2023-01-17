@@ -39,10 +39,22 @@ article {
   font-size: 25px;
   width: 100%;
 }
+
 .likesInfos {
   display: flex;
   justify-content: space-around;
   width: 20%;
+}
+// .fa-heart::before {
+//   // font-weight: initial;
+// }
+.heartLikeFooter {
+  color: #901c1c;
+ 
+}
+.heartLikes i{
+  color: #901c1c;
+  font-weight: initial;
 }
 .mediaImage {
   width: 100%;
