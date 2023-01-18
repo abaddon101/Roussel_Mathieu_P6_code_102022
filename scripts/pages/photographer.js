@@ -90,7 +90,6 @@ async function init() {
   displayData(photographerDisplayData, mediasList);
   // console.log(mediasList);
   sortAndDisplayBy("popularity");
-
   lightBox();
 
   ///////////// Tri des médias /////////////
@@ -141,16 +140,25 @@ async function displayMedia(medias, photographerDisplayData) {
   });
   console.log(medias);
   likePriceContainer(medias);
+  // totalHeartFooter(medias);
   lightBox();
 }
 
 async function displayData(photographer, media) {
-  const headerSection = document.querySelector(".photograph-header-container");
-  // const mediaSection = document.querySelector(".mediaSection");
   const photographerModel = photographerFactory(photographer, media);
+
+  const headerphotographer = photographerModel.headerPhotographer();
+  const headerSection = document.querySelector(".photograph-header-container");
+  headerSection.appendChild(headerphotographer);
+
+  const footerPhotographer = photographerModel.footerSection();
+  const footerSection = document.querySelector("#likePriceContainer");
+  
+
+  
+
   // console.log(photographerModel);
   // j'appel headerPhotographer grâce à photographerModel
-  const headerphotographer = photographerModel.headerPhotographer();
-  headerSection.appendChild(headerphotographer);
+
   LaunchModal();
 }
