@@ -1,5 +1,6 @@
-function photographerFactory(data) {
+function photographerFactory(data, media) {
   const { city, country, name, tagline, portrait, price, id } = data;
+  // const { photographerId, title, image, video, likes, date } = media;
   const picture = `assets/photographersMini/${portrait}`;
 
   // la fonction getUserCardDOM permet :
@@ -75,16 +76,23 @@ function photographerFactory(data) {
 
   function footerSection() {
     const containerLikePrice = document.querySelector("#likePriceContainer");
-    console.log(containerLikePrice);
+    // console.log(containerLikePrice);
+
+    const footerTotalLike = document.createElement("div");
+    containerLikePrice.appendChild(footerTotalLike);
+    footerTotalLike.className += "footerNavLikeTotal";
+    footerTotalLike.id = "containertotalLike";
+    // let totalLike = mediaLists.reduce((total, media) => total + media.like, 0);
+    // footerTotalLike.textContent = totalLike;
+
     const footerContainer = document.createElement("div");
     containerLikePrice.appendChild(footerContainer);
     footerContainer.className += "footerContainer";
 
     const divPrice = document.createElement("div");
-
     divPrice.className += "priceFooter";
+    footerContainer.appendChild(divPrice);
     divPrice.textContent = price + "€/jour";
-    containerLikePrice.appendChild(divPrice);
 
     return containerLikePrice;
   }

@@ -1,6 +1,8 @@
 function mediaFactory(media, photographer) {
   const { photographerId, title, image, video, likes, date } = media;
   const { city, country, name, tagline, portrait, price, id } = photographer;
+  // let likeTotal = likes.lenght;
+  // console.log(likeTotal);
   //console.log(media);
   // console.log(photographer);
 
@@ -49,8 +51,8 @@ function mediaFactory(media, photographer) {
     const heartLikes = document.createElement("span");
     heartLikes.className = "heartLikes";
     likesInfos.appendChild(heartLikes);
-    heartLikes.innerHTML = '<i class="heartLike fa-solid fa-heart" data-id=" '+ media.id +'"></i>';
-  
+    heartLikes.innerHTML =
+      '<i class="heartLike fa-solid fa-heart" data-id=" ' + media.id + '"></i>';
 
     return article;
   }
