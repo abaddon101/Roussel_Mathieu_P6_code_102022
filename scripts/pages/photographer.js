@@ -141,13 +141,14 @@ async function displayMedia(medias, photographerDisplayData) {
   });
 
   // console.log(medias);
-
+ 
   likePriceContainer(medias);
+ 
   lightBox();
 }
 
-async function displayData(photographer, media) {
-  const photographerModel = photographerFactory(photographer, media);
+async function displayData(photographer, media, listMedias) {
+  const photographerModel = photographerFactory(photographer, media, listMedias);
 
   const headerphotographer = photographerModel.headerPhotographer();
   const headerSection = document.querySelector(".photograph-header-container");
@@ -155,6 +156,6 @@ async function displayData(photographer, media) {
 
   const footerPhotographer = photographerModel.footerSection();
   const footerSection = document.querySelector("#likePriceContainer");
-
+  // likePriceContainer(photographer);
   LaunchModal();
 }

@@ -1,6 +1,20 @@
 function likePriceContainer(listMedias) {
   const hearts = document.querySelectorAll(".heartLike");
+  const footerNavLikeTotal = document.querySelector(".footerNavLikeTotal");
+  /// ajout tu totalLike ici pour l'insérer dans le footerNavLikeTotal
+  let totalLike = 0;
+  listMedias.forEach((media) => {
+    console.log(media);
+    console.log(listMedias);
 
+    media.likes;
+    totalLike = totalLike + media.likes;
+    // totalLike +=media.likes; (écriture similaire)
+    // totalLike = listMedias.reduce((total, media) => total + media.like, 0) () remplace le forEach
+  });
+  footerNavLikeTotal.textContent = totalLike;
+
+  console.log(footerNavLikeTotal);
   // console.log(hearts);
   hearts.forEach((items) => {
     // console.log(items.ELEMENT_NODE);
@@ -9,30 +23,32 @@ function likePriceContainer(listMedias) {
     });
   });
 }
+
 function clickTheHeart(event, listMedias) {
   const totalCounter = document.querySelector("#containertotalLike");
-  
   console.log(totalCounter);
-  const hearts = document.querySelectorAll(".heartLike");
+  const footerNavLikeTotal = document.querySelector(".footerNavLikeTotal");
+
   let id = event.target.dataset.id;
   let media = listMedias.find((mediaData) => {
     // le return id sera correct s'il correspond à l'id qu'on l'on cherche dans le json
     return id == mediaData.id;
   });
-
   media.likes++;
+
   let totalLike = 0;
   listMedias.forEach((media) => {
-    // console.log(media);
+    console.log(media);
+    console.log(listMedias);
+
     media.likes;
     totalLike = totalLike + media.likes;
     // totalLike +=media.likes; (écriture similaire)
     // totalLike = listMedias.reduce((total, media) => total + media.like, 0) () remplace le forEach
   });
   console.log(totalLike);
-
   totalCounter.textContent = totalLike;
-  // console.log(media.likes);
+  console.log(media.likes);
   // totalCounter.textContent = totalLike;
   // current target :  click sur l'élement
   // qui déclenche l'event => recupère ce qu'il y'a derrière
@@ -47,7 +63,4 @@ function clickTheHeart(event, listMedias) {
   // console.log(totalNumberCount);
   // ajoute le total des likes
   // dans le container total du footer(au clic pour le moment...)
-  return{
-    clickTheHeart,
-  }
 }
