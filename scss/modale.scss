@@ -1,6 +1,13 @@
 /*Modale Formular */
 #contact_modal {
   display: none;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  left: 15px;
+  background: rgb(242, 242, 242);
+  opacity: 0.95;
+  bottom: 0px;
 }
 .contactButton {
   font-size: 22px;
@@ -34,13 +41,16 @@
 .modal {
   border-radius: 5px;
   background-color: #db8876;
-  width: 50%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 35px;
   margin: auto;
+  position: relative;
+  bottom: 15px;
+  top: 35px;
 
   header {
     justify-content: space-between;
@@ -79,6 +89,23 @@ form {
     align-items: self-start;
     margin-bottom: 26px;
   }
+}
+
+.submitButton {
+  font-size: 22px;
+  color: white;
+  width: 170px;
+  height: 50px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  // order: 1;
 }
 #missingFirstName {
   display: none;
