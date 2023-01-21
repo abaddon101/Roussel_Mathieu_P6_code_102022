@@ -41,7 +41,7 @@ function clickTheHeart(event, likeMedia) {
   // console.log(id);
 
   /// condition au clic, incrémentation, Limité à un clic
-  const totalCounter = document.querySelector("#containertotalLike");
+  const footerNavLikeTotal = document.querySelector(".footerNavLikeTotal")
   /// recupère le i au clic
   let hearts = event.target;
   /// recupère le span heartLikes
@@ -56,9 +56,10 @@ function clickTheHeart(event, likeMedia) {
     heartParent.className !== "clicked"
   ) {
     // pour n'autoriser qu'un seul clic par image'
+    // je lui ajoute la classList clicked
     hearts.classList.add("clicked");
     likeP.textContent++; // incrémente de 1 le likeInfosNumber
-    totalCounter.textContent++; // incrémente de 1 le containertotalLike
+    footerNavLikeTotal.textContent++; // incrémente de 1 le footerNavLikeTotal
     media.likes++; // incrémente de 1 le total
   } else if (
     event.target.className === "heartLike fa-solid fa-heart" &&
@@ -66,7 +67,7 @@ function clickTheHeart(event, likeMedia) {
   ) {
     hearts.classList.add("clicked");
     likeP.textContent--;
-    totalCounter.textContent--;
+    footerNavLikeTotal.textContent--;
     media.likes--;
   }
 
@@ -85,7 +86,7 @@ function clickTheHeart(event, likeMedia) {
     //  () remplace le forEach
   });
   console.log(totalLike);
-  totalCounter.textContent = totalLike;
+  footerNavLikeTotal.textContent = totalLike;
 
   // totalCounter.textContent = totalLike;
   // current target :  click sur l'élement

@@ -76,18 +76,18 @@ function photographerFactory(data, media) {
 
   function footerSection() {
     const containerLikePrice = document.querySelector("#likePriceContainer");
-    // console.log(containerLikePrice);
+
+    const contentTotalHeart = document.createElement("div");
+    containerLikePrice.appendChild(contentTotalHeart);
+    contentTotalHeart.className += "contentTotalHeart";
 
     const footerTotalLike = document.createElement("div");
-    containerLikePrice.appendChild(footerTotalLike);
+    contentTotalHeart.appendChild(footerTotalLike);
     footerTotalLike.className += "footerNavLikeTotal";
-    footerTotalLike.id = "containertotalLike";
 
-    // let totalLike = mediaLists.reduce((total, media) => total + media.like, 0);
-    //  footerTotalLike.textContent = name;
     const heartTotalCounter = document.createElement("div");
     heartTotalCounter.className += "heartTotalCounter";
-    containerLikePrice.appendChild(heartTotalCounter);
+    contentTotalHeart.appendChild(heartTotalCounter);
     heartTotalCounter.innerHTML = '<i class="heartLike fa-solid fa-heart"></i>';
     const footerContainer = document.createElement("div");
     containerLikePrice.appendChild(footerContainer);
