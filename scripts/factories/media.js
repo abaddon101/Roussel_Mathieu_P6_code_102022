@@ -47,7 +47,12 @@ function mediaFactory(media, photographer) {
     infosArticle.appendChild(likesInfos);
     likesInfos.className = "likesInfos";
 
-    likesInfos.innerText = likes;
+    const likeInfosNumber = document.createElement("span");
+    likesInfos.appendChild(likeInfosNumber);
+    likeInfosNumber.className += "likeInfosNumber";
+    likeInfosNumber.innerText = likes;
+
+    // likesInfos.innerText = likes;
     const heartLikes = document.createElement("span");
     heartLikes.className = "heartLikes";
     likesInfos.appendChild(heartLikes);

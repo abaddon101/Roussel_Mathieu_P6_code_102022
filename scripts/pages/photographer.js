@@ -147,8 +147,8 @@ async function displayMedia(medias, photographerDisplayData) {
   lightBox();
 }
 
-async function displayData(photographer, media, listMedias) {
-  const photographerModel = photographerFactory(photographer, media, listMedias);
+async function displayData(photographer, media ) {
+  const photographerModel = photographerFactory(photographer, media);
 
   const headerphotographer = photographerModel.headerPhotographer();
   const headerSection = document.querySelector(".photograph-header-container");
@@ -156,6 +156,6 @@ async function displayData(photographer, media, listMedias) {
 
   const footerPhotographer = photographerModel.footerSection();
   const footerSection = document.querySelector("#likePriceContainer");
-  // likePriceContainer(photographer);
+
   LaunchModal();
 }

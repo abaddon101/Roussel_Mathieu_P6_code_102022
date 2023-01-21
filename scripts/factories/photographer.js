@@ -56,7 +56,7 @@ function photographerFactory(data, media) {
     profilPicturePhotographer.setAttribute("alt", portrait);
 
     const picture2 = `assets/photographersMini/${portrait}`;
-    console.log(picture2);
+    // console.log(picture2);
     headerSection.appendChild(profilPicturePhotographer);
     const bouton = document.createElement("button");
     bouton.className = "contactButton";
@@ -82,9 +82,13 @@ function photographerFactory(data, media) {
     containerLikePrice.appendChild(footerTotalLike);
     footerTotalLike.className += "footerNavLikeTotal";
     footerTotalLike.id = "containertotalLike";
-    // let totalLike = mediaLists.reduce((total, media) => total + media.like, 0);
-    // footerTotalLike.textContent = totalLike;
 
+    // let totalLike = mediaLists.reduce((total, media) => total + media.like, 0);
+    //  footerTotalLike.textContent = name;
+    const heartTotalCounter = document.createElement("div");
+    heartTotalCounter.className += "heartTotalCounter";
+    containerLikePrice.appendChild(heartTotalCounter);
+    heartTotalCounter.innerHTML = '<i class="heartLike fa-solid fa-heart"></i>';
     const footerContainer = document.createElement("div");
     containerLikePrice.appendChild(footerContainer);
     footerContainer.className += "footerContainer";

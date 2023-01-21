@@ -1,54 +1,92 @@
-function likePriceContainer(listMedias) {
+function likePriceContainer(listMediasObject) {
   const hearts = document.querySelectorAll(".heartLike");
   const footerNavLikeTotal = document.querySelector(".footerNavLikeTotal");
+
   /// ajout tu totalLike ici pour l'insérer dans le footerNavLikeTotal
   let totalLike = 0;
-  listMedias.forEach((media) => {
-    console.log(media);
-    console.log(listMedias);
-
+  listMediasObject.forEach((media) => {
+    // console.log(media);
+    // console.log(listMediasObject);
     media.likes;
     totalLike = totalLike + media.likes;
-    // totalLike +=media.likes; (écriture similaire)
-    // totalLike = listMedias.reduce((total, media) => total + media.like, 0) () remplace le forEach
   });
   footerNavLikeTotal.textContent = totalLike;
 
-  console.log(footerNavLikeTotal);
+  // console.log(footerNavLikeTotal);
   // console.log(hearts);
-  hearts.forEach((items) => {
-    // console.log(items.ELEMENT_NODE);
-    items.addEventListener("click", (event) => {
-      clickTheHeart(event, listMedias);
+  // au clic de mon items, l'event se lance
+  hearts.forEach((littleHeart) => {
+    // console.log(littleHeart);
+    littleHeart.addEventListener("click", (event) => {
+      clickTheHeart(event, listMediasObject);
     });
   });
 }
 
-function clickTheHeart(event, listMedias) {
-  const totalCounter = document.querySelector("#containertotalLike");
-  console.log(totalCounter);
-  const footerNavLikeTotal = document.querySelector(".footerNavLikeTotal");
-
+function clickTheHeart(event, likeMedia) {
   let id = event.target.dataset.id;
-  let media = listMedias.find((mediaData) => {
-    // le return id sera correct s'il correspond à l'id qu'on l'on cherche dans le json
-    return id == mediaData.id;
+  console.log(id);
+  /// au clic de l'id, j'ai l'id de la photo
+  /// media, va se servir du param likeMedia pour pour faire un find.
+  /// le find va ensuite faire une fonction avec comme paramêtre mediaData
+  /// afin de retourner l'id en lui donnant la valeur mediaData.id
+  let media = likeMedia.find((objectData) => {
+    // le return id permet de me renvoyer  l'objet likeMedia grâ au paramêtre mediaData qui possède
+    // l'id + photographerId + title + image + likes +date + price
+    // console.log(objectData);
+    // console.log(objectData.id);
+    return id == objectData.id;
   });
-  media.likes++;
 
+  // console.log(id);
+
+  /// condition au clic, incrémentation, Limité à un clic
+  const totalCounter = document.querySelector("#containertotalLike");
+  /// recupère le i au clic
+  let hearts = event.target;
+  /// recupère le span heartLikes
+  let heartParent = hearts.parentNode;
+  /// recupère le span likeInfosNumber contenant le nbre de like de la photo
+  let likeP = heartParent.parentNode.querySelector(".likeInfosNumber");
+
+  if (
+    /// si ma cible à pour nom de classe heartLike fa-solid fa-hear et
+    /// et que le span heartLikes est cliqué
+    event.target.className === "heartLike fa-solid fa-heart" &&
+    heartParent.className !== "clicked"
+  ) {
+    // pour n'autoriser qu'un seul clic par image'
+    hearts.classList.add("clicked");
+    likeP.textContent++; // incrémente de 1 le likeInfosNumber
+    totalCounter.textContent++; // incrémente de 1 le containertotalLike
+    media.likes++; // incrémente de 1 le total
+  } else if (
+    event.target.className === "heartLike fa-solid fa-heart" &&
+    heartParent.className == "clicked"
+  ) {
+    hearts.classList.add("clicked");
+    likeP.textContent--;
+    totalCounter.textContent--;
+    media.likes--;
+  }
+
+  console.log(media.likes);
+
+  /// incrémenation au clic du total de like
   let totalLike = 0;
-  listMedias.forEach((media) => {
-    console.log(media);
-    console.log(listMedias);
-
+  likeMedia.forEach((media) => {
+    // console.log(media);
+    //  console.log(listMediasObject);
     media.likes;
     totalLike = totalLike + media.likes;
-    // totalLike +=media.likes; (écriture similaire)
-    // totalLike = listMedias.reduce((total, media) => total + media.like, 0) () remplace le forEach
+    // totalLike += media.likes;
+    //  (écriture similaire)
+    // totalLike = listMediasObject.reduce((total, media) => total + media.like, 0)
+    //  () remplace le forEach
   });
   console.log(totalLike);
   totalCounter.textContent = totalLike;
-  console.log(media.likes);
+
   // totalCounter.textContent = totalLike;
   // current target :  click sur l'élement
   // qui déclenche l'event => recupère ce qu'il y'a derrière
