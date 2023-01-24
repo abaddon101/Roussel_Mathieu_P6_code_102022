@@ -1,5 +1,5 @@
 function mediaFactory(media, photographer) {
-  const { photographerId, title, image, video, likes, date } = media;
+  const { photographerId, title, image, video, likes, date, isClicked } = media;
   const { city, country, name, tagline, portrait, price, id } = photographer;
   // let likeTotal = likes.lenght;
   // console.log(likeTotal);
@@ -56,9 +56,19 @@ function mediaFactory(media, photographer) {
     const heartLikes = document.createElement("span");
     heartLikes.className = "heartLikes";
     likesInfos.appendChild(heartLikes);
-    heartLikes.innerHTML =
-      '<i class="heartLike fa-solid fa-heart" data-id=" ' + media.id + '"></i>';
+    if (isClicked !== true) {
+      heartLikes.innerHTML =
+        '<i class="heartLike fa-regular fa-heart" data-id=" ' +
+        media.id +
+        '"></i>';
+    } else {
+      heartLikes.innerHTML =
+        '<i class="heartLike fa-solid fa-heart" data-id=" ' +
+        media.id +
+        '"></i>';
+    }
 
+    console.log(isClicked);
     return article;
   }
 

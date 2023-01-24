@@ -41,7 +41,7 @@ function clickTheHeart(event, likeMedia) {
   // console.log(id);
 
   /// condition au clic, incrémentation, Limité à un clic
-  const footerNavLikeTotal = document.querySelector(".footerNavLikeTotal")
+  const footerNavLikeTotal = document.querySelector(".footerNavLikeTotal");
   /// recupère le i au clic
   let hearts = event.target;
   /// recupère le span heartLikes
@@ -49,23 +49,21 @@ function clickTheHeart(event, likeMedia) {
   /// recupère le span likeInfosNumber contenant le nbre de like de la photo
   let likeP = heartParent.parentNode.querySelector(".likeInfosNumber");
 
-  if (
-    /// si ma cible à pour nom de classe heartLike fa-solid fa-hear et
-    /// et que le span heartLikes est cliqué
-    event.target.className === "heartLike fa-solid fa-heart" &&
-    heartParent.className !== "clicked"
-  ) {
+  if (!hearts.classList.contains("clicked")) {
     // pour n'autoriser qu'un seul clic par image'
     // je lui ajoute la classList clicked
+    media.isClicked = true;
     hearts.classList.add("clicked");
+    hearts.classList.add("fa-solid");
+    hearts.classList.remove("fa-regular");
     likeP.textContent++; // incrémente de 1 le likeInfosNumber
     footerNavLikeTotal.textContent++; // incrémente de 1 le footerNavLikeTotal
     media.likes++; // incrémente de 1 le total
-  } else if (
-    event.target.className === "heartLike fa-solid fa-heart" &&
-    heartParent.className == "clicked"
-  ) {
-    hearts.classList.add("clicked");
+  } else {
+    media.isClicked = false;
+    hearts.classList.remove("clicked");
+    hearts.classList.remove("fa-solid");
+    hearts.classList.add("fa-regular");
     likeP.textContent--;
     footerNavLikeTotal.textContent--;
     media.likes--;

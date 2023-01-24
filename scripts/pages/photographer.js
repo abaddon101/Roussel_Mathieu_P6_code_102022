@@ -141,13 +141,13 @@ async function displayMedia(medias, photographerDisplayData) {
   });
 
   // console.log(medias);
- 
+
   likePriceContainer(medias);
- 
+
   lightBox();
 }
 
-async function displayData(photographer, media ) {
+async function displayData(photographer, media) {
   const photographerModel = photographerFactory(photographer, media);
 
   const headerphotographer = photographerModel.headerPhotographer();

@@ -99,8 +99,8 @@ function LaunchModal() {
       // console.log("true");
       const modal = document.querySelector("#contact_modal");
       modal.style.display = "none";
-      e.preventDefault();
       errorMessageStop();
+      e.preventDefault();
     }
 
     return submitFormular;
