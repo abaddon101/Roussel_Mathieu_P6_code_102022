@@ -20,25 +20,30 @@ function likePriceContainer(listMediasObject) {
     littleHeart.addEventListener("click", (event) => {
       clickTheHeart(event, listMediasObject);
     });
+    littleHeart.addEventListener("keypress", (event) => {
+      console.log(littleHeart);
+      if (event.key == "Enter") {
+        clickTheHeart(event, listMediasObject);
+      }
+    });
   });
 }
 
 function clickTheHeart(event, likeMedia) {
   let id = event.target.dataset.id;
-  console.log(id);
+  // console.log(id);
+  // console.log(event);
+  // console.log(likeMedia);
   /// au clic de l'id, j'ai l'id de la photo
   /// media, va se servir du param likeMedia pour pour faire un find.
   /// le find va ensuite faire une fonction avec comme paramêtre mediaData
   /// afin de retourner l'id en lui donnant la valeur mediaData.id
   let media = likeMedia.find((objectData) => {
-    // le return id permet de me renvoyer  l'objet likeMedia grâ au paramêtre mediaData qui possède
+    // le return id permet de me renvoyer  l'objet likeMedia grâce au paramêtre mediaData qui possède
     // l'id + photographerId + title + image + likes +date + price
-    // console.log(objectData);
-    // console.log(objectData.id);
+
     return id == objectData.id;
   });
-
-  // console.log(id);
 
   /// condition au clic, incrémentation, Limité à un clic
   const footerNavLikeTotal = document.querySelector(".footerNavLikeTotal");
@@ -50,7 +55,6 @@ function clickTheHeart(event, likeMedia) {
   let likeP = heartParent.parentNode.querySelector(".likeInfosNumber");
 
   if (!hearts.classList.contains("clicked")) {
-    // pour n'autoriser qu'un seul clic par image'
     // je lui ajoute la classList clicked
     media.isClicked = true;
     hearts.classList.add("clicked");
@@ -70,6 +74,7 @@ function clickTheHeart(event, likeMedia) {
   }
 
   console.log(media.likes);
+  // console.log(clickTheHeart);
 
   /// incrémenation au clic du total de like
   let totalLike = 0;
@@ -78,10 +83,6 @@ function clickTheHeart(event, likeMedia) {
     //  console.log(listMediasObject);
     media.likes;
     totalLike = totalLike + media.likes;
-    // totalLike += media.likes;
-    //  (écriture similaire)
-    // totalLike = listMediasObject.reduce((total, media) => total + media.like, 0)
-    //  () remplace le forEach
   });
   console.log(totalLike);
   footerNavLikeTotal.textContent = totalLike;
@@ -100,4 +101,7 @@ function clickTheHeart(event, likeMedia) {
   // console.log(totalNumberCount);
   // ajoute le total des likes
   // dans le container total du footer(au clic pour le moment...)
+  return {
+    clickTheHeart,
+  };
 }

@@ -1,13 +1,5 @@
-///////////// Retour page accueil /////////////
-const indexLogo = document.querySelector(".logo");
-indexLogo.onclick = function () {
-  location.href = "index.html";
-};
-indexLogo.style.cursor = "pointer";
-function setFocusToElements() {
-  document.htmlElement().focus;
-  // console.log(setFocusToElements);
-}
+
+
 /////////////   /////////////
 function getIdFromUrl() {
   const photographersValue = window.location.search;
@@ -21,8 +13,7 @@ async function init() {
   const paramId = getIdFromUrl();
 
   const photographerDisplayData = await getPhotographer(paramId);
-  //console.log(photographerDisplayData);
-  const mediaSection = document.querySelector(".mediaSection");
+
   const wrapperContainer = document.querySelector(".wrapperContainer");
   wrapperContainer.innerHTML = `
   <section class="dropdown">
@@ -90,7 +81,6 @@ async function init() {
   displayData(photographerDisplayData, mediasList);
   // console.log(mediasList);
   sortAndDisplayBy("popularity");
-  lightBox();
 
   ///////////// Tri des médias /////////////
 
@@ -156,6 +146,6 @@ async function displayData(photographer, media) {
 
   const footerPhotographer = photographerModel.footerSection();
   const footerSection = document.querySelector("#likePriceContainer");
-
+  // likePriceContainer(media);
   LaunchModal();
 }

@@ -3,15 +3,29 @@ function LaunchModal() {
   const submitButton = document.querySelector(".submitButton");
   const closeBtnModal = document.querySelector(".closeContactModal");
 
+  const first = document.querySelector("#first");
+  const last = document.querySelector("#last");
+  const email = document.querySelector("#email");
+  const message = document.querySelector("#message");
+  const modal = document.querySelector("#contact_modal");
+
+  const focusableElement = "button, input, img ";
+  console.log(focusableElement);
+
+  const firstFocusableElement = modal.querySelectorAll(focusableElement)[0];
+  console.log(firstFocusableElement);
+
+  const focusableContent = modal.querySelectorAll(focusableElement);
+  console.log(focusableContent);
+
+  const lastFocusableElement = focusableContent[focusableContent.length - 1];
+  console.log(lastFocusableElement);
+
   submitButton.addEventListener("click", submitFormular);
   btnContact.addEventListener("click", displayModal);
   closeBtnModal.addEventListener("click", closeModal);
 
   function submitFormular(e) {
-    const first = document.querySelector("#first");
-    const last = document.querySelector("#last");
-    const email = document.querySelector("#email");
-    const message = document.querySelector("#message");
     ///
     const validFirstname = function (first) {
       let firstRegExp = new RegExp("^[a-zA-Z]{2,}$", "i");
@@ -86,7 +100,7 @@ function LaunchModal() {
       validMessage(message) == false
     ) {
       console.log("false");
-      const modal = document.querySelector("#contact_modal");
+
       modal.style.display = "flex";
       e.preventDefault();
       errorMessage();
@@ -97,7 +111,7 @@ function LaunchModal() {
       validMessage(message) == true
     ) {
       // console.log("true");
-      const modal = document.querySelector("#contact_modal");
+
       modal.style.display = "none";
       errorMessageStop();
       e.preventDefault();
@@ -107,14 +121,12 @@ function LaunchModal() {
   }
 
   function displayModal(e) {
-    const modal = document.querySelector("#contact_modal");
     modal.style.display = "block";
     e.preventDefault();
     return displayModal;
   }
 
   function closeModal(e) {
-    const modal = document.querySelector("#contact_modal");
     modal.style.display = "none";
     e.preventDefault();
     return closeModal;

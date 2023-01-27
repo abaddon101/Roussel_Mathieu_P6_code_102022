@@ -2,6 +2,7 @@
 // au clic de mon movieMediaLink ou de mon imgMediaLink j'active la div lightboxmodal
 // je défini ma constante lightboxmodal, ses composant, ses fleche, ses images/video...
 function lightBox() {
+  let tabindex = 0;
   const lightboxmodal = document.querySelector(".lightboxModal");
   lightboxmodal.innerHTML = `
     <div class = "lightBoxPArent">
@@ -128,9 +129,25 @@ function lightBox() {
     const selectObj = document.querySelectorAll(
       ".mediaSection img.mediaImage , .mediaSection video.movieMedia"
     );
-    // console.log(selectObj);
-    selectObj.forEach((obj) => {
-      obj.addEventListener("click", showLightBox);
+
+    selectObj.forEach((objs) => {
+      objs.addEventListener("click", (event) => {
+        console.log(event);
+        showLightBox(event);
+      });
+      objs.addEventListener("keypress", (e) => {
+        console.log(e);
+        if (e.key == "Enter") {
+          console.log(e.key);
+          showLightBox(e);
+        }
+      });
+    });
+    next.addEventListener("keydown ", (e) => {
+      console.log(e.key);
+      if (e.key === "ArrowRight") {
+        nextSlide(e);
+      }
     });
   }
   ///////////// function permettant de cibler l'élément à afficher  /////////////
@@ -140,6 +157,7 @@ function lightBox() {
     );
 
     let lightBoxImg = document.querySelector("#lightBoxImg");
+    lightBoxImg.setAttribute("tabindex", tabindex);
     let lightBoxMovie = document.querySelector("#lightBoxMovie");
 
     if (event.target.tagName == "IMG") {
