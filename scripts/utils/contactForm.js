@@ -2,31 +2,55 @@ function LaunchModal() {
   const btnContact = document.querySelector(".contactButton");
   const submitButton = document.querySelector(".submitButton");
   const closeBtnModal = document.querySelector(".closeContactModal");
+  let tabindex = 0;
+
+  closeBtnModal.setAttribute("tabindex", tabindex);
 
   const first = document.querySelector("#first");
   const last = document.querySelector("#last");
   const email = document.querySelector("#email");
   const message = document.querySelector("#message");
   const modal = document.querySelector("#contact_modal");
+  /// Allow the focus inside the modale for accessibility
+  const focusableElements =
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
-  const focusableElement = "button, input, img ";
-  console.log(focusableElement);
+  const firstFocusableElement = modal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
+  const focusableContent = modal.querySelectorAll(focusableElements);
+  const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
 
-  const firstFocusableElement = modal.querySelectorAll(focusableElement)[0];
-  console.log(firstFocusableElement);
-
-  const focusableContent = modal.querySelectorAll(focusableElement);
-  console.log(focusableContent);
-
-  const lastFocusableElement = focusableContent[focusableContent.length - 1];
-  console.log(lastFocusableElement);
-
+  document.addEventListener("keydown", (e) => {
+    let isTabPressed = e.keyCode === 9 || e.key === "enter";
+    // console.log(e.keyCode);
+    // console.log(e.key);
+    if (!isTabPressed) {
+      return;
+    }
+    if (e.shiftKey) {
+      console.log(e.shiftKey);
+      // if shift key pressed for shift + tab combination
+      if (document.activeElement === firstFocusableElement) {
+        lastFocusableElement.focus(); // add focus for the last focusable element
+        e.preventDefault();
+      }
+    } else {
+      // if tab key is pressed
+      if (document.activeElement === lastFocusableElement) {
+        // if focused has reached to last focusable element then focus first focusable element after pressing tab
+        firstFocusableElement.focus(); // add focus for the first focusable element
+        e.preventDefault();
+      }
+    }
+  });
+  firstFocusableElement.focus();
+  /// Allow the focus inside the modale for accessibility End
+  /// Event
   submitButton.addEventListener("click", submitFormular);
   btnContact.addEventListener("click", displayModal);
+  closeBtnModal.addEventListener("keydown", closeModal);
   closeBtnModal.addEventListener("click", closeModal);
 
   function submitFormular(e) {
-    ///
     const validFirstname = function (first) {
       let firstRegExp = new RegExp("^[a-zA-Z]{2,}$", "i");
       let testFirstName = firstRegExp.test(first.value);
@@ -122,6 +146,7 @@ function LaunchModal() {
 
   function displayModal(e) {
     modal.style.display = "block";
+    first.focus();
     e.preventDefault();
     return displayModal;
   }
