@@ -1,12 +1,12 @@
 async function dropDownContainer() {
-    //
+  //
   const paramId = getIdFromUrl();
   const photographersValue = window.location.search;
   const urlParams = new URLSearchParams(photographersValue);
   const param1Id = urlParams.get("id");
-// Via l'API, getPhotographer est chargé de recuperer
-// les données des photographes
-// ave comme parametre paramId
+  // Via l'API, getPhotographer est chargé de recuperer
+  // les données des photographes
+  // ave comme parametre paramId
   const photographerDisplayData = await getPhotographer(paramId);
 
   const wrapperContainer = document.querySelector(".wrapperContainer");
@@ -46,8 +46,8 @@ async function dropDownContainer() {
   function dropDownOpen() {
     dropDownDiv.style.display = "flex";
     chevronDown.setAttribute("aria-expanded", "true");
-    popularity.focus();
-    titre.focus();
+    // popularity.focus();
+    // titre.focus();
   }
   ///////////// fermeture du dropdown /////////////
   function dropDownClose() {
@@ -60,21 +60,48 @@ async function dropDownContainer() {
   ///////////// Select Option /////////////
   function selectOption(event) {
     const getLibelle = event.target.innerText;
+
     libelleFilter.innerText = getLibelle;
     dropDownClose();
     sortAndDisplayBy(event.target.dataset.value);
   }
   popularity.addEventListener("click", selectOption);
+  popularity.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      selectOption(e);
+    }
+  });
+
   date.addEventListener("click", selectOption);
+  date.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      selectOption(e);
+    }
+  });
+
   titre.addEventListener("click", selectOption);
+
+  titre.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      selectOption(e);
+    }
+  });
   const mediasList = await getMedia(paramId);
   displayData(photographerDisplayData, mediasList);
   // console.log(mediasList);
   sortAndDisplayBy("popularity");
+
+  // function sortByKey(e) {
+  //   const enterIsPressed = e.key === "enter";
+  //   console.log(e.key);
+  //   if (enterIsPressed) {
+  //     selectOption(e);
+  //   }
+  // }
   ///////////// Sort medias /////////////
   function sortAndDisplayBy(orderBy) {
     // console.log(mediasList.sort());
-    // console.log(orderBy);
+    console.log(orderBy);
     if (orderBy === "popularity") {
       mediasList.sort((a, b) => {
         return b.likes - a.likes;

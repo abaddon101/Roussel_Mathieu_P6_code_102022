@@ -42,8 +42,10 @@ function LaunchModal() {
       }
     }
   });
+  /// send back to the first element of the modal when it arrive at end 
   firstFocusableElement.focus();
   /// Allow the focus inside the modale for accessibility End
+  
   /// Event
   submitButton.addEventListener("click", submitFormular);
   btnContact.addEventListener("click", displayModal);
