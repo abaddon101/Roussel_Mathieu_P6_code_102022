@@ -1,10 +1,10 @@
 function LaunchModal() {
   const btnContact = document.querySelector(".contactButton");
   const submitButton = document.querySelector(".submitButton");
-  const closeBtnModal = document.querySelector(".closeContactModal");
-  let tabindex = 0;
+  const closeBtnModal = document.querySelector(".fa-xmark");
+  // let tabindex = 0;
 
-  closeBtnModal.setAttribute("tabindex", tabindex);
+  // closeBtnModal.setAttribute("tabindex", tabindex);
 
   const first = document.querySelector("#first");
   const last = document.querySelector("#last");
@@ -42,14 +42,18 @@ function LaunchModal() {
       }
     }
   });
-  /// send back to the first element of the modal when it arrive at end 
-  firstFocusableElement.focus();
+  /// send back to the first element of the modal when it arrive at end
+  // firstFocusableElement.focus();
   /// Allow the focus inside the modale for accessibility End
-  
+
   /// Event
   submitButton.addEventListener("click", submitFormular);
   btnContact.addEventListener("click", displayModal);
-  closeBtnModal.addEventListener("keydown", closeModal);
+  closeBtnModal.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+      closeModal();
+    }
+  });
   closeBtnModal.addEventListener("click", closeModal);
 
   function submitFormular(e) {
@@ -156,6 +160,7 @@ function LaunchModal() {
   function closeModal(e) {
     modal.style.display = "none";
     e.preventDefault();
+
     return closeModal;
   }
 }
