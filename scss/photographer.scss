@@ -2,6 +2,7 @@
 @import url("modale.css");
 @import url("lightbox.css");
 @import url("likePriceContainer.css");
+@import url("normalize.css");
 
 /* Section media & article*/
 .mediaSection {
@@ -34,11 +35,10 @@ article {
     transform: scale(1.05);
     transition: 1s;
   }
-  &:focus { 
+  &:focus {
     transform: scale(1.05);
     transition: 1s;
-  } 
-  
+  }
 }
 .infosArticle {
   margin-top: 5px;

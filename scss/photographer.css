@@ -2,6 +2,7 @@
 @import url("modale.css");
 @import url("lightbox.css");
 @import url("likePriceContainer.css");
+@import url("normalize.css");
 /* Section media & article*/
 .mediaSection {
   /*display: grid;
