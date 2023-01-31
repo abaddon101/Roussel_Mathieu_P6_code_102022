@@ -3,7 +3,6 @@ function LaunchModal() {
   const submitButton = document.querySelector(".submitButton");
   const closeBtnModal = document.querySelector(".fa-xmark");
 
-
   // let tabindex = 0;
 
   // closeBtnModal.setAttribute("tabindex", tabindex);
