@@ -2,6 +2,8 @@ function LaunchModal() {
   const btnContact = document.querySelector(".contactButton");
   const submitButton = document.querySelector(".submitButton");
   const closeBtnModal = document.querySelector(".fa-xmark");
+
+
   // let tabindex = 0;
 
   // closeBtnModal.setAttribute("tabindex", tabindex);
@@ -27,7 +29,7 @@ function LaunchModal() {
       return;
     }
     if (e.shiftKey) {
-      console.log(e.shiftKey);
+      // console.log(e.shiftKey);
       // if shift key pressed for shift + tab combination
       if (document.activeElement === firstFocusableElement) {
         lastFocusableElement.focus(); // add focus for the last focusable element
@@ -43,15 +45,15 @@ function LaunchModal() {
     }
   });
   /// send back to the first element of the modal when it arrive at end
-  // firstFocusableElement.focus();
+  firstFocusableElement.focus();
   /// Allow the focus inside the modale for accessibility End
 
   /// Event
   submitButton.addEventListener("click", submitFormular);
   btnContact.addEventListener("click", displayModal);
-  closeBtnModal.addEventListener("keyup", (e) => {
+  closeBtnModal.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      closeModal();
+      closeModal(e);
     }
   });
   closeBtnModal.addEventListener("click", closeModal);

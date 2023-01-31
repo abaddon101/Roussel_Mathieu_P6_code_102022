@@ -1,10 +1,18 @@
 function photographerFactory(data, media) {
   const { city, country, name, tagline, portrait, price, id } = data;
   const indexLogo = document.querySelector(".logo");
-  //On click => return to the Welcome'page
-  indexLogo.onclick = function () {
+
+  //Event => access to the Welcome'Page
+  function goToTheWelcomePage() {
     location.href = "index.html";
-  };
+  }
+  indexLogo.addEventListener("click", goToTheWelcomePage);
+  indexLogo.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      goToTheWelcomePage();
+    }
+  });
+
   let tabindex = 0;
   indexLogo.setAttribute("tabindex", tabindex);
   indexLogo.style.cursor = "pointer";
@@ -17,10 +25,17 @@ function photographerFactory(data, media) {
     article.className += "cardPhotographer";
     article.setAttribute("tabindex", tabindex);
     article.setAttribute("aria-label", name);
-    //On click => access to the Photographer
-    article.onclick = function () {
+    //Event => access to the Photographer
+    function goToThePhotoPage() {
       location.href = `photographer.html?id=${id}`;
-    };
+    }
+    article.addEventListener("click", goToThePhotoPage);
+    article.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        goToThePhotoPage();
+      }
+    });
+
     // Creation of the picProfil
     const img = document.createElement("img");
     img.className += "picProfil";
@@ -94,6 +109,11 @@ function photographerFactory(data, media) {
 
     return headerSection;
   }
+  function modalElement() {
+    const tagNameModal = document.querySelector(".tagNameModal");
+    tagNameModal.textContent = name;
+    console.log(tagNameModal);
+  }
 
   // Creation of the footerSection In the photographer'page
   function footerSection() {
@@ -127,6 +147,7 @@ function photographerFactory(data, media) {
   return {
     getUserCardDOM,
     headerPhotographer,
+    modalElement,
     footerSection,
   };
 }

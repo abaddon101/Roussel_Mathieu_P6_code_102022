@@ -53,5 +53,9 @@ h1 {
   transform: scale(1.05);
   transition: 1s;
 }
+.photographer_section article:focus {
+  transform: scale(1.05);
+  transition: 1s;
+}
 
 /*photographer section End *//*# sourceMappingURL=style.css.map */

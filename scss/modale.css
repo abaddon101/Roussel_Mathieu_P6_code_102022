@@ -13,7 +13,7 @@
   font-size: 50px;
   background: #db8876;
   border: none;
-  color: black;
+  color: white;
   font-weight: bold;
 }
 
@@ -51,6 +51,7 @@
   border-radius: 5px;
   background-color: #db8876;
   width: 30%;
+  height: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,16 +64,26 @@
 }
 .modal header {
   justify-content: space-between;
+  display: flex;
   width: 100%;
 }
-.modal header img {
+.modal header button {
   cursor: pointer;
 }
 
-.modal header h2 {
-  font-size: 64px;
+.contactName {
   font-weight: normal;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 50px;
+  width: 100%;
+  height: 100%;
+}
+.contactName .contactTitle {
+  margin: 0 0 0 0px;
+}
+.contactName .tagNameModal {
+  margin: 0 0 0 0px;
 }
 
 form {

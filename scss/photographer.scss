@@ -30,6 +30,15 @@ article {
     height: 400px;
     cursor: pointer;
   }
+  &:hover {
+    transform: scale(1.05);
+    transition: 1s;
+  }
+  &:focus { 
+    transform: scale(1.05);
+    transition: 1s;
+  } 
+  
 }
 .infosArticle {
   margin-top: 5px;
@@ -50,9 +59,8 @@ article {
 // }
 .heartLikeFooter {
   color: #901c1c;
- 
 }
-.heartLikes i{
+.heartLikes i {
   color: #901c1c;
   // font-weight: initial;
 }

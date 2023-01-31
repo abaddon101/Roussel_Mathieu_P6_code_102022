@@ -33,6 +33,7 @@ async function displayData(photographer, media) {
   headerSection.appendChild(headerphotographer);
 
   const footerPhotographer = photographerModel.footerSection();
+  const modalPhotographer = photographerModel.modalElement();
   const footerSection = document.querySelector("#likePriceContainer");
   // likePriceContainer(media);
   LaunchModal();
