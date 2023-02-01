@@ -1,18 +1,20 @@
-/////////////   /////////////
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+/// //////////   /////////////
 function getIdFromUrl() {
   const photographersValue = window.location.search;
-  console.log(photographersValue);
+  // console.log(photographersValue);
 
   const urlParams = new URLSearchParams(photographersValue);
-  console.log(urlParams);
+  // console.log(urlParams);
 
   const param1Id = urlParams.get("id");
-  console.log(param1Id);
+  // console.log(param1Id);
   return param1Id;
 }
 dropDownContainer();
 
-///////////// recupère et crée les media, article grâce au forEach /////////////
+/// ////////// recupère et crée les media, article grâce au forEach /////////////
 async function displayMedia(medias, photographerDisplayData) {
   const mediaSection = document.querySelector(".mediaSection");
   mediaSection.innerHTML = "";

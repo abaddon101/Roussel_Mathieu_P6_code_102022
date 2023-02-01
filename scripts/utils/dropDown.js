@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 async function dropDownContainer() {
   //
   const paramId = getIdFromUrl();
@@ -7,6 +8,7 @@ async function dropDownContainer() {
   // Via l'API, getPhotographer est chargé de recuperer
   // les données des photographes
   // ave comme parametre paramId
+  // eslint-disable-next-line no-undef
   const photographerDisplayData = await getPhotographer(paramId);
 
   const wrapperContainer = document.querySelector(".wrapperContainer");
@@ -32,24 +34,24 @@ async function dropDownContainer() {
       </div>     
     </div>
   </section>`;
-  ///////////// dropdown /////////////
-  let dropDownDiv = document.querySelector(".container");
-  let chevronDown = document.getElementById("button-dropdown");
-  let chevronUp = document.getElementById("button-dropup");
-  let libelleFilter = document.querySelector("#dropDownLibelle");
-  let popularity = document.getElementById("option1");
-  let date = document.getElementById("option2");
-  let titre = document.getElementById("option3");
+  /// ////////// dropdown /////////////
+  const dropDownDiv = document.querySelector(".container");
+  const chevronDown = document.getElementById("button-dropdown");
+  const chevronUp = document.getElementById("button-dropup");
+  const libelleFilter = document.querySelector("#dropDownLibelle");
+  const popularity = document.getElementById("option1");
+  const date = document.getElementById("option2");
+  const titre = document.getElementById("option3");
   // console.log(dropdownlist);
   // console.log(dropdownlist.children);
-  ///////////// ouverture du dropdown /////////////
+  /// ////////// ouverture du dropdown /////////////
   function dropDownOpen() {
     dropDownDiv.style.display = "flex";
     chevronDown.setAttribute("aria-expanded", "true");
     // popularity.focus();
     // titre.focus();
   }
-  ///////////// fermeture du dropdown /////////////
+  /// ////////// fermeture du dropdown /////////////
   function dropDownClose() {
     dropDownDiv.style.display = "none";
     chevronDown.setAttribute("aria-expanded", "false");
@@ -57,7 +59,7 @@ async function dropDownContainer() {
   }
   chevronDown.addEventListener("click", () => dropDownOpen());
   chevronUp.addEventListener("click", () => dropDownClose());
-  ///////////// Select Option /////////////
+  /// ////////// Select Option /////////////
   function selectOption(event) {
     const getLibelle = event.target.innerText;
 
@@ -91,35 +93,26 @@ async function dropDownContainer() {
   // console.log(mediasList);
   sortAndDisplayBy("popularity");
 
-  // function sortByKey(e) {
-  //   const enterIsPressed = e.key === "enter";
-  //   console.log(e.key);
-  //   if (enterIsPressed) {
-  //     selectOption(e);
-  //   }
-  // }
-  ///////////// Sort medias /////////////
+  ////////// Sort medias /////////////
   function sortAndDisplayBy(orderBy) {
     // console.log(mediasList.sort());
-    console.log(orderBy);
+    // console.log(orderBy);
     if (orderBy === "popularity") {
-      mediasList.sort((a, b) => {
-        return b.likes - a.likes;
-      });
+      mediasList.sort((a, b) => b.likes - a.likes);
     }
     if (orderBy === "date") {
       mediasList.sort((a, b) => {
         // new Date permet de transformer une date en string pour qu'elle soit plus facile à trier
-        let dateA = new Date(a.date);
-        let dateB = new Date(b.date);
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
         return dateA - dateB;
       });
     }
     if (orderBy === "title") {
       mediasList.sort((a, b) => {
         // toLowerCase ne prend pas en compte majuscule ou minuscule pour le triage des strings
-        let titleA = a.title.toLowerCase();
-        let titleB = b.title.toLowerCase();
+        const titleA = a.title.toLowerCase();
+        const titleB = b.title.toLowerCase();
         if (titleA < titleB) return -1;
         if (titleA > titleB) return 1;
         return 0;
@@ -131,3 +124,4 @@ async function dropDownContainer() {
   }
   return param1Id;
 }
+dropDownContainer;

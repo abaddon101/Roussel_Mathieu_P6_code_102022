@@ -1,8 +1,7 @@
-/////////////  LightBox /////////////
-// au clic de mon movieMediaLink ou de mon imgMediaLink j'active la div lightboxmodal
-// je défini ma constante lightboxmodal, ses composant, ses fleche, ses images/video...
+///  LightBox
 function lightBox() {
-  let tabindex = 0;
+  const tabindex = 0;
+  let lightBoxActiveElement = null;
   const lightboxmodal = document.querySelector(".lightboxModal");
   lightboxmodal.innerHTML = `
     <div class = "lightBoxPArent">
@@ -36,16 +35,6 @@ function lightBox() {
   movieMedia.classList = "active";
   movieMedia.setAttribute("controls", videoMedia);
   movieMedia.addEventListener("click", playPauseMedia);
-  movieMedia.addEventListener("keydown", (e) => {
-    if (e.key === "Space") {
-      console.log(e.key);
-      movieMedia.play();
-    } else if (e.key === "Enter") {
-      console.log(e.key);
-      movieMedia.requestFullscreen();
-      // For control the sound, please use the arrowUp and arrowDown
-    }
-  });
 
   function playPauseMedia(play) {
     // mediaVideo.play();
@@ -77,9 +66,9 @@ function lightBox() {
   const focusableContent = modaleLightBox.querySelectorAll(focusableElements);
   const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
 
-  console.log(firstFocusableElement);
-  console.log(focusableContent);
-  console.log(lastFocusableElement);
+  // console.log(firstFocusableElement);
+  // console.log(focusableContent);
+  // console.log(lastFocusableElement);
   document.addEventListener("keydown", (e) => {
     let isTabPressed = e.keyCode === 9 || e.key === "enter";
     // console.log(e.keyCode);
@@ -104,20 +93,23 @@ function lightBox() {
     }
   });
   /// send back to the first element of the modal when it arrive at end
-  //  firstFocusableElement.focus();
+  firstFocusableElement.focus();
   /// Allow the focus inside the modale for accessibility End
 
   ///////////// Function permettant d'utiliser la flèche de droite /////////////
   function nextSlide() {
+    const selectObj = document.querySelectorAll(
+      ".mediaSection img.mediaImage , .mediaSection video.movieMedia"
+    );
     if (count < numberObj - 1) {
       count++;
     } else {
       count = 0;
     }
-
     let lightBoxImg = document.querySelector("#lightBoxImg");
     let lightBoxMovie = document.querySelector("#lightBoxMovie");
     let lightBoxActiveElement = null;
+    // console.log(count);
     if (selectObj[count].tagName == "IMG") {
       lightBoxMovie.style.display = "none";
       lightBoxImg.style.display = "block";
@@ -127,19 +119,38 @@ function lightBox() {
       lightBoxImg.style.display = "none";
       lightBoxActiveElement = lightBoxMovie;
     }
+
     console.log(lightBoxActiveElement);
     lightBoxActiveElement.classList.remove("active");
 
     lightBoxActiveElement.classList.add("active");
     console.log(count);
-    console.log(selectObj[count].src);
-
+    // console.log(selectObj[count].src);
     lightBoxActiveElement.setAttribute("src", selectObj[count].src);
   }
   next.addEventListener("click", nextSlide);
 
+  document.addEventListener("keydown", (e) => {
+    console.log(e.key);
+    if (e.key === "ArrowRight") {
+      // console.log("nickel");
+      nextSlide();
+    }
+    if (e.key === "Escape") {
+      // console.log("tchao");
+      closeLightBox();
+    }
+    if (e.key === "ArrowLeft") {
+      // console.log("check ça");
+      prevSlide();
+    }
+  });
+
   ///////////// Function permettant d'utiliser la flèche de gauche /////////////
   function prevSlide() {
+    const selectObj = document.querySelectorAll(
+      ".mediaSection img.mediaImage , .mediaSection video.movieMedia"
+    );
     if (count > 0) {
       count--;
     } else {
@@ -150,7 +161,7 @@ function lightBox() {
     let lightBoxMovie = document.querySelector("#lightBoxMovie");
     let lightBoxActiveElement = null;
     console.log(count);
-    console.log(selectObj);
+    // console.log(selectObj);
     if (selectObj[count].tagName == "IMG") {
       lightBoxMovie.style.display = "none";
       lightBoxImg.style.display = "block";
@@ -178,9 +189,8 @@ function lightBox() {
   closeModaleLightBox.addEventListener("click", closeLightBox);
   closeModaleLightBox.addEventListener("keydown", (e) => {
     if (e.key == "Escape") {
-      // return;
       console.log(e.key);
-      return closeLightBox();
+      closeLightBox();
     }
   });
 
@@ -202,12 +212,19 @@ function lightBox() {
         }
       });
     });
-    next.addEventListener("keydown ", (e) => {
-      console.log(e.key);
-      if (e.key === "Enter") {
-        nextSlide(e);
-      }
-    });
+    // const SelectTheArrow = document.querySelectorAll(
+    //   ".lightBoxContent .arrows"
+    // );
+    // console.log(SelectTheArrow);
+    // SelectTheArrow.forEach((arrows) => {
+    //   console.log(arrows);
+    //   arrows.addEventListener("keydown", (e) => {
+    //     if (e.keyCode === 39) {
+    //       console.log(e.keyCode);
+    //       nextSlide(e);
+    //     }
+    //   });
+    // });
   }
   ///////////// function permettant de cibler l'élément à afficher  /////////////
   function showLightBox(event) {
@@ -235,17 +252,18 @@ function lightBox() {
       lightBoxImg.style.display = "none";
       lightBoxActiveElement = lightBoxMovie;
     }
-    lightBoxActiveElement.classList.remove("active");
 
+    lightBoxActiveElement.classList.remove("active");
     lightBoxActiveElement.classList.add("active");
 
-    console.log(event.target.src);
+    // console.log(event.target.src);
     const modaleLightBox = document.querySelector(".lightboxModal");
     modaleLightBox.style.display = "block";
-    lastFocusableElement.focus();
+    firstFocusableElement.focus();
     lightBoxActiveElement.setAttribute("src", event.target.src);
 
     count = Array.from(selectObj).indexOf(event.target);
   }
   initLightBoxEvent();
 }
+// lightBox();
