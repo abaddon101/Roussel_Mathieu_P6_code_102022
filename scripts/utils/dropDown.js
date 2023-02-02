@@ -5,10 +5,10 @@ async function dropDownContainer() {
   const photographersValue = window.location.search;
   const urlParams = new URLSearchParams(photographersValue);
   const param1Id = urlParams.get("id");
+  // console.log(photographersValue);
   // Via l'API, getPhotographer est chargé de recuperer
   // les données des photographes
   // ave comme parametre paramId
-  // eslint-disable-next-line no-undef
   const photographerDisplayData = await getPhotographer(paramId);
 
   const wrapperContainer = document.querySelector(".wrapperContainer");

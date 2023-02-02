@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 function photographerFactory(data, media) {
   const { city, country, name, tagline, portrait, price, id } = data;
+  // console.log(data);
   const indexLogo = document.querySelector('.logo');
 
   // Event => access to the Welcome'Page

@@ -1,11 +1,33 @@
-///  LightBox
-function lightBox() {
+///  LightBox (le paramêtre récupère les medias de displayMedia)
+function lightBox(mediaList, photographs) {
+  //  const { photographerId, title, image, video, likes, date } =
+  //    mediaList;
+  // console.log(mediaList);
+  // console.log(mediaList[(0, 1, 2, 3, 4, 5, 6)]);
+  // console.log(mediaList[1]);
+  let contentTitle = mediaList;
+  let infoPerso = photographs;
+  // console.log(infoPerso);
+  // console.log(contentTitle);
+  //  console.log(Object.values(contentTitle));
+  const resulOfTheFinder = () => {
+    contentTitle.find((element) => {
+      console.log(element);
+      title = element.title;
+      console.log(title);
+    });
+  };
+
+  // console.log(id);
+  // testParId
+  // resulOfTheFinder();
+  // console.log(resulOfTheFinder);
+
   const tabindex = 0;
   let lightBoxActiveElement = null;
   const lightboxmodal = document.querySelector(".lightboxModal");
   lightboxmodal.innerHTML = `
-    <div class = "lightBoxPArent">
-      
+    <div class = "lightBoxPArent">      
       <div class = "lightBoxContent">
         <button class = "lightBoxCLose"><i class="fa-regular fa-xmark"></i></button>
         <div class = "arrows">
@@ -24,6 +46,10 @@ function lightBox() {
   imgMedia.setAttribute("tabindex", tabindex);
   imgMedia.id = "lightBoxImg";
   imgMedia.classList = "active";
+
+  let titlelightBoxImg = document.createElement("div");
+  titlelightBoxImg.className = "titlelightBoxImg";
+  lightBoxContent.appendChild(titlelightBoxImg);
 
   const movieMedia = document.createElement("video");
   const videoMedia = `assets/FishEye_Photos/Sample Photos/195/`;
@@ -101,6 +127,7 @@ function lightBox() {
     const selectObj = document.querySelectorAll(
       ".mediaSection img.mediaImage , .mediaSection video.movieMedia"
     );
+    const selectTitles = document.querySelectorAll(".mediaSection .mediaTitle");
     if (count < numberObj - 1) {
       count++;
     } else {
@@ -120,18 +147,21 @@ function lightBox() {
       lightBoxActiveElement = lightBoxMovie;
     }
 
-    console.log(lightBoxActiveElement);
+    // console.log(lightBoxActiveElement);
     lightBoxActiveElement.classList.remove("active");
 
     lightBoxActiveElement.classList.add("active");
     console.log(count);
     // console.log(selectObj[count].src);
     lightBoxActiveElement.setAttribute("src", selectObj[count].src);
+    titlelightBoxImg.textContent = selectTitles[count].innerText;
+
+    // titlelightBoxImg.textContent = selectObj[count].dataset.title;
   }
   next.addEventListener("click", nextSlide);
 
   document.addEventListener("keydown", (e) => {
-    console.log(e.key);
+    // console.log(e.key);
     if (e.key === "ArrowRight") {
       // console.log("nickel");
       nextSlide();
@@ -151,6 +181,7 @@ function lightBox() {
     const selectObj = document.querySelectorAll(
       ".mediaSection img.mediaImage , .mediaSection video.movieMedia"
     );
+    const selectTitles = document.querySelectorAll(".mediaSection .mediaTitle");
     if (count > 0) {
       count--;
     } else {
@@ -177,6 +208,7 @@ function lightBox() {
     lightBoxActiveElement.classList.add("active");
 
     lightBoxActiveElement.setAttribute("src", selectObj[count].src);
+    titlelightBoxImg.textContent = selectTitles[count].innerText;
   }
   prev.addEventListener("click", prevSlide);
 
@@ -200,6 +232,7 @@ function lightBox() {
     );
 
     selectObj.forEach((objs) => {
+      // console.log(objs);
       objs.addEventListener("click", (event) => {
         console.log(event);
         showLightBox(event);
@@ -231,6 +264,9 @@ function lightBox() {
     const selectObj = document.querySelectorAll(
       ".mediaSection img.mediaImage , .mediaSection video.movieMedia"
     );
+    const selectTitles = document.querySelectorAll(".mediaSection .mediaTitle");
+
+    console.log(selectObj);
 
     if (event.target == imgMedia) {
       imgMedia.focus();
@@ -263,7 +299,10 @@ function lightBox() {
     lightBoxActiveElement.setAttribute("src", event.target.src);
 
     count = Array.from(selectObj).indexOf(event.target);
+
+    console.log(count);
+    console.log(selectTitles);
+    titlelightBoxImg.textContent = selectTitles[count].innerText;
   }
   initLightBoxEvent();
 }
-// lightBox();

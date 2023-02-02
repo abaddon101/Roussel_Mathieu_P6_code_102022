@@ -48,10 +48,11 @@ function LaunchModal() {
   btnContact.addEventListener("click", displayModal);
 
   closeBtnModal.addEventListener("click", closeModal);
-  closeBtnModal.addEventListener("keydown", (e) => {
+
+  document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      console.log(e.key);
-      return closeModal();
+      // console.log(e.key);
+       closeModal();
     }
   });
 

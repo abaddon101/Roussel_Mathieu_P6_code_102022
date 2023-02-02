@@ -9,13 +9,14 @@ function getIdFromUrl() {
   // console.log(urlParams);
 
   const param1Id = urlParams.get("id");
-  // console.log(param1Id);
+  //  console.log(param1Id);
   return param1Id;
 }
 dropDownContainer();
 
 /// ////////// recupère et crée les media, article grâce au forEach /////////////
 async function displayMedia(medias, photographerDisplayData) {
+  // console.log(medias);
   const mediaSection = document.querySelector(".mediaSection");
   mediaSection.innerHTML = "";
   medias.forEach((media) => {
@@ -24,7 +25,7 @@ async function displayMedia(medias, photographerDisplayData) {
     mediaSection.appendChild(mediaCardDOM);
   });
   likePriceContainer(medias);
-  lightBox();
+  lightBox(medias, photographerDisplayData);
 }
 
 async function displayData(photographer, media) {

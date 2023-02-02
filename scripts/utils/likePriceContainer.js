@@ -43,13 +43,15 @@ function clickTheHeart(event, likeMedia) {
       // le return id permet de me renvoyer  l'objet likeMedia grâce au paramêtre mediaData qui possède
       // l'id + photographerId + title + image + likes +date + price
 
-      id == objectData.id
+      id == objectData.id 
+      
   );
-
+// console.log(clickTheHeart);
   /// condition au clic, incrémentation, Limité à un clic
   const footerNavLikeTotal = document.querySelector(".footerNavLikeTotal");
   /// recupère le i au clic
   const hearts = event.target;
+  // console.log(hearts);
   /// recupère le span heartLikes
   const heartParent = hearts.parentNode;
   /// recupère le span likeInfosNumber contenant le nbre de like de la photo

@@ -11,7 +11,9 @@ async function getPhotographer(id) {
         const photographer = response.photographers.find((photographerData) =>
           // le return id sera correct s'il correspond à l'id qu'on l'on cherche dans le json
           id == photographerData.id);
+          // console.log(photographer);
         return photographer;
+        
       })
   );
 }
