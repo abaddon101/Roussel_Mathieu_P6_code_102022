@@ -58,4 +58,28 @@ h1 {
   transition: 1s;
 }
 
-/*photographer section End *//*# sourceMappingURL=style.css.map */
+/*photographer section End */
+@media screen and (max-width: 1368px) {
+  .photographer_section {
+    display: flex;
+    gap: 70px;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  .logo {
+    height: 50px;
+    margin-left: 0;
+  }
+  h1 {
+    color: #901c1c;
+    margin-right: 0;
+  }
+}/*# sourceMappingURL=style.css.map */

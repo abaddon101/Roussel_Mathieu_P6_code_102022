@@ -25,7 +25,7 @@ async function displayMedia(medias, photographerDisplayData) {
     mediaSection.appendChild(mediaCardDOM);
   });
   likePriceContainer(medias);
-  lightBox(medias, photographerDisplayData);
+  lightBox();
 }
 
 async function displayData(photographer, media) {

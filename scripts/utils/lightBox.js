@@ -1,22 +1,25 @@
+/* eslint-disable no-undef */
+
 ///  LightBox (le paramêtre récupère les medias de displayMedia)
-function lightBox(mediaList, photographs) {
+// eslint-disable-next-line no-unused-vars
+function lightBox() {
   //  const { photographerId, title, image, video, likes, date } =
   //    mediaList;
   // console.log(mediaList);
   // console.log(mediaList[(0, 1, 2, 3, 4, 5, 6)]);
   // console.log(mediaList[1]);
-  let contentTitle = mediaList;
-  let infoPerso = photographs;
+  // let contentTitle = mediaList;
+  // let infoPerso = photographs;
   // console.log(infoPerso);
   // console.log(contentTitle);
   //  console.log(Object.values(contentTitle));
-  const resulOfTheFinder = () => {
-    contentTitle.find((element) => {
-      console.log(element);
-      title = element.title;
-      console.log(title);
-    });
-  };
+  // const resulOfTheFinder = () => {
+  //   contentTitle.find((element) => {
+  //     console.log(element);
+  //     title = element.title;
+  //     console.log(title);
+  //   });
+  // };
 
   // console.log(id);
   // testParId
@@ -27,7 +30,7 @@ function lightBox(mediaList, photographs) {
   let lightBoxActiveElement = null;
   const lightboxmodal = document.querySelector(".lightboxModal");
   lightboxmodal.innerHTML = `
-    <div class = "lightBoxPArent">      
+          
       <div class = "lightBoxContent">
         <button class = "lightBoxCLose"><i class="fa-regular fa-xmark"></i></button>
         <div class = "arrows">
@@ -35,32 +38,34 @@ function lightBox(mediaList, photographs) {
           <button class = "lightBoxNext"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
      </div>
-    </div>
+    
   `;
   const lightBoxContent = document.querySelector(".lightBoxContent");
+  const mediaLegend = document.createElement("div");
+  mediaLegend.className = "mediaLegend";
+  lightBoxContent.appendChild(mediaLegend);
+
   const imgMedia = document.createElement("img");
   const pictureMedia = `assets/FishEye_Photos/Sample Photos/195/Architecture_Dome.jpg`;
-
-  lightBoxContent.appendChild(imgMedia);
+  mediaLegend.appendChild(imgMedia);
   imgMedia.setAttribute("src", pictureMedia);
   imgMedia.setAttribute("tabindex", tabindex);
   imgMedia.id = "lightBoxImg";
   imgMedia.classList = "active";
 
-  let titlelightBoxImg = document.createElement("div");
-  titlelightBoxImg.className = "titlelightBoxImg";
-  lightBoxContent.appendChild(titlelightBoxImg);
-
   const movieMedia = document.createElement("video");
   const videoMedia = `assets/FishEye_Photos/Sample Photos/195/`;
-
-  lightBoxContent.appendChild(movieMedia);
-  movieMedia.setAttribute("src", videoMedia);
-  movieMedia.setAttribute("tabindex", tabindex);
+  mediaLegend.appendChild(movieMedia);
   movieMedia.id = "lightBoxMovie";
   movieMedia.classList = "active";
+  movieMedia.setAttribute("src", videoMedia);
+  movieMedia.setAttribute("tabindex", tabindex);
   movieMedia.setAttribute("controls", videoMedia);
   movieMedia.addEventListener("click", playPauseMedia);
+
+  let titlelightBoxImg = document.createElement("div");
+  titlelightBoxImg.className = "titlelightBoxImg";
+  mediaLegend.appendChild(titlelightBoxImg);
 
   function playPauseMedia(play) {
     // mediaVideo.play();

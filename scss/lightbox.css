@@ -16,7 +16,7 @@ article {
 .lightboxModal .lightBoxCLose {
   display: flex;
   position: absolute;
-  right: 425px;
+  right: 30px;
   border: none;
   width: 50px;
   height: 50px;
@@ -35,18 +35,20 @@ article {
   cursor: pointer;
 }
 
-.lightBoxPArent .fa-solid,
-.lightBoxPArent .fas {
+.lightBoxContent {
+  position: relative;
+  display: flex;
+  border: 1px solid blue;
+  max-width: 90%;
+  justify-content: center;
+  margin: auto;
+}
+.lightBoxContent .fa-solid,
+.lightBoxContent .fas {
   font-weight: 900;
   color: #901c1c;
   font-size: 50px;
   cursor: pointer;
-}
-
-.lightBoxContent {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
 }
 
 .arrows {
@@ -58,7 +60,7 @@ article {
   width: 100px;
   height: 150px;
   position: absolute;
-  left: 400px;
+  left: 10px;
   top: 350px;
   border: none;
   background: none;
@@ -72,7 +74,7 @@ article {
   height: 150px;
   position: absolute;
   top: 350px;
-  right: 400px;
+  right: 10px;
   border: none;
   background: none;
 }
@@ -94,6 +96,12 @@ article {
   display: flex;
   width: 800px;
   height: 800px;
+}
+
+.titlelightBoxImg {
+  margin-top: 10px;
+  color: #901c1c;
+  font-size: 25px;
 }
 
 .active {
