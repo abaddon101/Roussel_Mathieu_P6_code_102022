@@ -32,7 +32,6 @@
   align-items: center;
   justify-content: center;
   order: 1;
-
 }
 
 .btn-submit {
@@ -50,23 +49,21 @@
 .modal {
   border-radius: 5px;
   background-color: #db8876;
+  min-width: 30%;
   width: 30%;
-  height: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 35px;
+  padding: 20px;
   margin: auto;
   position: relative;
-  bottom: 15px;
-  top: 35px;
 
-  header {
+  .headerModal {
     justify-content: space-between;
-    // flex-direction: column;
     display: flex;
     width: 100%;
+    align-items: baseline;
 
     button {
       cursor: pointer;
@@ -85,7 +82,7 @@
     margin: 0 0 0 0px;
   }
   .tagNameModal {
-    margin: 0 0 0 0px;
+    margin: 10px 0px 10px 0px;
   }
 }
 
@@ -167,3 +164,18 @@ form {
   align-items: center;
 }
 /*Modale Formular End */
+@media screen and (max-width: 980px) {
+  #contact_modal {
+    left: 0;
+  }
+  .modal {
+    min-width: 50%;
+    width: 75%;
+  }
+}
+@media screen and (max-width: 590) {
+  .modal {
+    min-width: 50%;
+    width: 70%;
+  }
+}
