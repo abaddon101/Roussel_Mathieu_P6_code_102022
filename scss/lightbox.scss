@@ -39,7 +39,7 @@ article {
 .lightBoxContent {
   position: relative;
   display: flex;
-  max-width: 55%;
+  max-width: 70%;
   justify-content: center;
   margin: auto;
   margin-top: 25px;
@@ -112,10 +112,10 @@ article {
 }
 .active {
   border-radius: 1px;
-  // object-fit: cover;
+
   display: flex;
   width: 100%;
-  // height: 800px;
+
   border-radius: 5px;
   box-shadow: 0px 0px 4px 0px gray;
 }
@@ -133,16 +133,12 @@ article {
   #lightBoxImg {
     object-fit: cover;
     display: flex;
-    // width: 600px;
-    height: 600px;
     margin: auto;
   }
 
   #lightBoxMovie {
     object-fit: cover;
     display: flex;
-    // width: 600px;
-    height: 600px;
     margin: auto;
   }
   .titlelightBoxImg {
@@ -157,12 +153,12 @@ article {
   .mediaLegend {
     width: 70%;
   }
-  #lightBoxImg {
-    height: 400px;
-  }
-  #lightBoxMovie {
-    height: 400px;
-  }
+  // #lightBoxImg {
+  //   height: 400px;
+  // }
+  // #lightBoxMovie {
+  //   height: 400px;
+  // }
   .titlelightBoxImg {
     width: 80%;
     margin: auto;

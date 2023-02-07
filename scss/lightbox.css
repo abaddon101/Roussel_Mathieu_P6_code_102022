@@ -38,7 +38,7 @@ article {
 .lightBoxContent {
   position: relative;
   display: flex;
-  max-width: 55%;
+  max-width: 70%;
   justify-content: center;
   margin: auto;
   margin-top: 25px;
@@ -144,14 +144,12 @@ article {
     -o-object-fit: cover;
        object-fit: cover;
     display: flex;
-    height: 600px;
     margin: auto;
   }
   #lightBoxMovie {
     -o-object-fit: cover;
        object-fit: cover;
     display: flex;
-    height: 600px;
     margin: auto;
   }
   .titlelightBoxImg {
@@ -165,12 +163,6 @@ article {
   }
   .mediaLegend {
     width: 70%;
-  }
-  #lightBoxImg {
-    height: 400px;
-  }
-  #lightBoxMovie {
-    height: 400px;
   }
   .titlelightBoxImg {
     width: 80%;
