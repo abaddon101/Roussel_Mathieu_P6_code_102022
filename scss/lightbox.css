@@ -7,7 +7,7 @@ article {
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 0;
+  top: 0px;
   width: 100vw;
   height: 100vh;
   background-color: white;
@@ -16,7 +16,7 @@ article {
 .lightboxModal .lightBoxCLose {
   display: flex;
   position: absolute;
-  right: 30px;
+  right: 0px;
   border: none;
   width: 50px;
   height: 50px;
@@ -38,10 +38,10 @@ article {
 .lightBoxContent {
   position: relative;
   display: flex;
-  border: 1px solid blue;
-  max-width: 90%;
+  max-width: 55%;
   justify-content: center;
   margin: auto;
+  margin-top: 25px;
 }
 .lightBoxContent .fa-solid,
 .lightBoxContent .fas {
@@ -57,36 +57,46 @@ article {
 }
 
 .lightBoxPrev {
-  width: 100px;
-  height: 150px;
+  width: 30px;
+  height: 45px;
   position: absolute;
   left: 10px;
-  top: 350px;
   border: none;
   background: none;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
 }
 .lightBoxPrev i:hover {
   color: #c21414;
 }
 
 .lightBoxNext {
-  width: 100px;
-  height: 150px;
+  width: 30px;
+  height: 45px;
   position: absolute;
-  top: 350px;
   right: 10px;
   border: none;
   background: none;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
 }
 .lightBoxNext i:hover {
   color: #c21414;
+}
+
+.mediaLegend {
+  width: 80%;
 }
 
 #lightBoxImg {
   -o-object-fit: cover;
      object-fit: cover;
   display: flex;
-  width: 800px;
+  width: 100%;
   height: 800px;
 }
 
@@ -94,7 +104,7 @@ article {
   -o-object-fit: cover;
      object-fit: cover;
   display: flex;
-  width: 800px;
+  width: 100%;
   height: 800px;
 }
 
@@ -107,8 +117,7 @@ article {
 .active {
   border-radius: 1px;
   display: flex;
-  width: 800px;
-  height: 800px;
+  width: 100%;
   border-radius: 5px;
   box-shadow: 0px 0px 4px 0px gray;
 }
@@ -128,5 +137,53 @@ article {
   }
   to {
     opacity: 1;
+  }
+}
+@media screen and (max-width: 1180px) {
+  #lightBoxImg {
+    -o-object-fit: cover;
+       object-fit: cover;
+    display: flex;
+    height: 600px;
+    margin: auto;
+  }
+  #lightBoxMovie {
+    -o-object-fit: cover;
+       object-fit: cover;
+    display: flex;
+    height: 600px;
+    margin: auto;
+  }
+  .titlelightBoxImg {
+    width: 80%;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 980px) {
+  .lightBoxContent {
+    max-width: 85%;
+  }
+  .mediaLegend {
+    width: 70%;
+  }
+  #lightBoxImg {
+    height: 400px;
+  }
+  #lightBoxMovie {
+    height: 400px;
+  }
+  .titlelightBoxImg {
+    width: 80%;
+    margin: auto;
+  }
+}
+@media screen and (max-width: 780px) {
+  .lightBoxContent {
+    max-width: 95%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .lightBoxContent {
+    max-width: 100%;
   }
 }/*# sourceMappingURL=lightbox.css.map */

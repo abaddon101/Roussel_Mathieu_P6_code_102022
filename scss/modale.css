@@ -175,7 +175,7 @@ form div {
     width: 75%;
   }
 }
-@media screen and (max-width: 590) {
+@media screen and (max-width: 590px) {
   .modal {
     min-width: 50%;
     width: 70%;
