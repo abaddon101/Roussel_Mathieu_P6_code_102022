@@ -2,7 +2,7 @@
 
 ## Projet 6 : créez un site accessible pour une plateforme de photographe
 
-Parcours développeur web, front-end javascript react de Open-classroom, débuté en mars 2022, 14 projets. Voici le projet 6, extrait de la note de réunions :
+Parcours développeur web, front-end javascript react de Open-classroom, débuté en mai 2022, 14 projets. Voici le projet 6, extrait de la note de réunions :
 
 ## Objectif
 
