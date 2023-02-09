@@ -19,6 +19,7 @@ function LaunchModal() {
   submitButton.addEventListener("click", submitFormular);
   btnContact.addEventListener("click", displayModal);
   closeBtnModal.addEventListener("click", closeModal);
+  closeBtnModal.setAttribute("aria-label", "fermer formulaire");
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
       closeModal();
