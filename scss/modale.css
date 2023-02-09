@@ -34,6 +34,16 @@
   justify-content: center;
   order: 1;
 }
+.contactButton:hover {
+  background-color: #db8876;
+  color: #000000;
+}
+.contactButton:focus {
+  background-color: #db8876;
+  color: #000000;
+  box-shadow: 0 0 20px #901c1c;
+  border-radius: 5px;
+}
 
 .btn-submit {
   font-size: 22px;
@@ -180,4 +190,4 @@ form div {
     min-width: 50%;
     width: 70%;
   }
-}/*# sourceMappingURL=modale.css.map */
+} /*# sourceMappingURL=modale.css.map */

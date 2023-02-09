@@ -1,16 +1,10 @@
 /* eslint-disable no-undef */
 async function dropDownContainer() {
-  //
   const paramId = getIdFromUrl();
   const photographersValue = window.location.search;
   const urlParams = new URLSearchParams(photographersValue);
   const param1Id = urlParams.get("id");
-  // console.log(photographersValue);
-  // Via l'API, getPhotographer est chargé de recuperer
-  // les données des photographes
-  // ave comme parametre paramId
   const photographerDisplayData = await getPhotographer(paramId);
-
   const wrapperContainer = document.querySelector(".wrapperContainer");
   wrapperContainer.innerHTML = `
   <section class="dropdown">
@@ -34,7 +28,7 @@ async function dropDownContainer() {
       </div>     
     </div>
   </section>`;
-  /// ////////// dropdown /////////////
+
   const dropDownDiv = document.querySelector(".container");
   const chevronDown = document.getElementById("button-dropdown");
   const chevronUp = document.getElementById("button-dropup");
@@ -42,16 +36,14 @@ async function dropDownContainer() {
   const popularity = document.getElementById("option1");
   const date = document.getElementById("option2");
   const titre = document.getElementById("option3");
-  // console.log(dropdownlist);
-  // console.log(dropdownlist.children);
-  /// ////////// ouverture du dropdown /////////////
+
+  /// Open dropdown
   function dropDownOpen() {
     dropDownDiv.style.display = "flex";
     chevronDown.setAttribute("aria-expanded", "true");
-    // popularity.focus();
-    // titre.focus();
   }
-  /// ////////// fermeture du dropdown /////////////
+
+  /// close dropdown
   function dropDownClose() {
     dropDownDiv.style.display = "none";
     chevronDown.setAttribute("aria-expanded", "false");
@@ -59,50 +51,45 @@ async function dropDownContainer() {
   }
   chevronDown.addEventListener("click", () => dropDownOpen());
   chevronUp.addEventListener("click", () => dropDownClose());
-  /// ////////// Select Option /////////////
+
+  /// Select Option
   function selectOption(event) {
     const getLibelle = event.target.innerText;
-
     libelleFilter.innerText = getLibelle;
     dropDownClose();
     sortAndDisplayBy(event.target.dataset.value);
   }
+  /// Event
   popularity.addEventListener("click", selectOption);
   popularity.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       selectOption(e);
     }
   });
-
   date.addEventListener("click", selectOption);
   date.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       selectOption(e);
     }
   });
-
   titre.addEventListener("click", selectOption);
-
   titre.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       selectOption(e);
     }
   });
+
   const mediasList = await getMedia(paramId);
   displayData(photographerDisplayData, mediasList);
-  // console.log(mediasList);
-  sortAndDisplayBy("popularity");
 
-  ////////// Sort medias /////////////
+  /// Sort medias
   function sortAndDisplayBy(orderBy) {
-    // console.log(mediasList.sort());
-    // console.log(orderBy);
     if (orderBy === "popularity") {
       mediasList.sort((a, b) => b.likes - a.likes);
     }
     if (orderBy === "date") {
       mediasList.sort((a, b) => {
-        // new Date permet de transformer une date en string pour qu'elle soit plus facile à trier
+        /// new Date allow to transform a date in a string for better facilities to sort
         const dateA = new Date(a.date);
         const dateB = new Date(b.date);
         return dateA - dateB;
@@ -110,7 +97,7 @@ async function dropDownContainer() {
     }
     if (orderBy === "title") {
       mediasList.sort((a, b) => {
-        // toLowerCase ne prend pas en compte majuscule ou minuscule pour le triage des strings
+        /// toLowerCase don't care and don't take maj or min for the sort of the strings
         const titleA = a.title.toLowerCase();
         const titleB = b.title.toLowerCase();
         if (titleA < titleB) return -1;
@@ -118,10 +105,11 @@ async function dropDownContainer() {
         return 0;
       });
     }
-    // get the media thanks to the function displayMedia
-    // and parameters mediasList+photographerDisplayData
+    /// get the media thanks to the function displayMedia
+    /// and parameters mediasList+photographerDisplayData
     displayMedia(mediasList, photographerDisplayData);
   }
+  sortAndDisplayBy("popularity");
   return param1Id;
 }
 dropDownContainer;

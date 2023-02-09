@@ -19,6 +19,14 @@
   box-sizing: border-box;
   opacity: 1;
 }
+.select-filter_button:focus {
+  background-color: #db8876;
+  color: #000000;
+}
+.select-filter_button:hover {
+  background-color: #db8876;
+  color: #000000;
+}
 
 .dropdown {
   display: flex;

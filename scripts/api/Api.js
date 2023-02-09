@@ -1,40 +1,43 @@
 /* eslint-disable no-unused-vars */
-// chargé de recuperer les données des photographes
+/// Take the photographer's data
 async function getPhotographer(id) {
   return (
-    fetch('./data/photographers.json')
-      // Ici, then() transforme le résultat en objet js array
+    fetch("./data/photographers.json")
+      /// here, then() transform the result in objet js array
       .then((response) => response.json())
-      // Ici, then() avec le find va récupérer un seul photographe avec l'id correspondant
+      /// here, then() with the find will take on photographer thanks to his id
       .then((response) => {
         // console.log(response);
-        const photographer = response.photographers.find((photographerData) =>
-          // le return id sera correct s'il correspond à l'id qu'on l'on cherche dans le json
-          id == photographerData.id);
-          // console.log(photographer);
+        const photographer = response.photographers.find(
+          (photographerData) =>
+            ///  return id will be good if is equal to the id we looking for in the json
+            id == photographerData.id
+        );
+        // console.log(photographer);
         return photographer;
-        
       })
   );
 }
 
-// chargé de recuperer les données des medias
+/// Take the media's data
 async function getMedia(photographerId) {
   return (
-    fetch('./data/photographers.json')
-      // Ici, then() transforme le résultat en objet js array
+    fetch("./data/photographers.json")
+      // here, then() transform the result in objet js array
       .then((response) => response.json())
-      // Ici, then() avec le find va récupérer un seul photographe avec l'id correspondant
+      /// here, then() with the find will take on photographer thanks to his id
       .then((response) => {
         // console.log(response);
-        const media = response.media.filter((mediaData) =>
-          // le return id sera correct s'il correspond à l'id qu'on l'on cherche dans le json
-          photographerId == mediaData.photographerId);
+        const media = response.media.filter(
+          (mediaData) =>
+            ///  return id will be good if is equal to the id we looking for in the json
+            photographerId == mediaData.photographerId
+        );
         return media;
       })
   );
 }
-// recupères les data dans le index.html
+/// Take the data in index.html
 async function getPhotographers() {
-  return fetch('./data/photographers.json').then((response) => response.json());
+  return fetch("./data/photographers.json").then((response) => response.json());
 }

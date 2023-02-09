@@ -31,31 +31,31 @@ h1 {
   gap: 70px;
   margin-top: 100px;
 }
-.photographer_section article {
+.photographer_section .cardPhotographer {
   justify-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.photographer_section article h2 {
+.photographer_section .cardPhotographer img:hover {
+  box-shadow: 0 0 20px #db8876;
+  border-radius: 5px;
+}
+.photographer_section .cardPhotographer img:focus {
+  box-shadow: 0 0 20px #db8876;
+  border-radius: 5px;
+}
+.photographer_section .cardPhotographer h2 {
   color: #d3573c;
   font-size: 36px;
 }
-.photographer_section article img {
+.photographer_section .cardPhotographer img {
   height: 200px;
   width: 200px;
 }
-.photographer_section article .photographLink {
+.photographer_section .cardPhotographer .photographLink {
   text-decoration: none;
-}
-.photographer_section article:hover {
-  transform: scale(1.05);
-  transition: 1s;
-}
-.photographer_section article:focus {
-  transform: scale(1.05);
-  transition: 1s;
 }
 
 /*photographer section End */

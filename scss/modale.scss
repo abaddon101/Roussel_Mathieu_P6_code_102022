@@ -32,6 +32,18 @@
   align-items: center;
   justify-content: center;
   order: 1;
+
+  &:hover {
+    background-color: #db8876;
+    color: #000000;
+  }
+
+  &:focus {
+    background-color: #db8876;
+    color: #000000;
+    box-shadow: 0 0 20px #901c1c;
+    border-radius: 5px;
+  }
 }
 
 .btn-submit {

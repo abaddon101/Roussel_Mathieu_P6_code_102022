@@ -6,38 +6,39 @@
 
 /* Section media & article*/
 .mediaSection {
-  /*display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
-    */
   gap: 100px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  /* border: 1px solid black;*/
   width: 90%;
   margin-left: 100px;
   margin-top: 50px;
   margin-bottom: 100px;
 }
-article {
+
+.articleMedia {
   display: flex;
   flex-wrap: wrap;
   width: 430px;
   height: 400px;
   border-radius: 10px;
-  a {
-    width: 430px;
-    height: 400px;
-    cursor: pointer;
+  img:hover {
+    box-shadow: 0 0 20px #db8876;
+    border-radius: 5px;
   }
-  &:hover {
-    transform: scale(1.05);
-    transition: 1s;
+  video:hover {
+    box-shadow: 0 0 20px #db8876;
+    border-radius: 5px;
   }
-  &:focus {
-    transform: scale(1.05);
-    transition: 1s;
+
+  img:focus {
+    box-shadow: 0 0 20px #db8876;
+    border-radius: 5px;
+  }
+  video:focus {
+    box-shadow: 0 0 20px #db8876;
+    border-radius: 5px;
   }
 }
 .infosArticle {
@@ -54,15 +55,17 @@ article {
   justify-content: space-around;
   width: 20%;
 }
-// .fa-heart::before {
-//   // font-weight: initial;
-// }
 .heartLikeFooter {
   color: #901c1c;
 }
-.heartLikes i {
+.heartLikes {
   color: #901c1c;
-  // font-weight: initial;
+  :focus {
+    box-shadow: 0 0 20px #db8876;
+  }
+  :hover {
+    box-shadow: 0 0 20px #db8876;
+  }
 }
 .mediaImage {
   width: 100%;
@@ -81,7 +84,6 @@ article {
   height: 300px;
   margin: 0 100px;
   display: flex;
-  /* width: 1250px;*/
   justify-content: space-around;
 }
 .contentHeader {
@@ -117,16 +119,7 @@ article {
     margin-bottom: 100px;
   }
 }
-// @media screen and (max-width: 1080px) {
-//   article {
-//     display: flex;
-//     flex-wrap: wrap;
-//     width: 50%;
-//     height: auto;
-//     border-radius: 10px;
-//     margin: auto;
-//   }
-// }
+
 @media screen and (max-width: 890px) {
   .photograph-header {
     flex-direction: column;
